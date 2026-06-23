@@ -1147,7 +1147,7 @@
     {
       "id": 537405,
       "utcDate": "2026-06-23T17:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "stage": "GROUP_STAGE",
       "group": "GROUP_K",
       "groupName": "Group K",
@@ -1165,10 +1165,10 @@
         "crest": "https://crests.football-data.org/8070.png"
       },
       "score": {
-        "home": null,
-        "away": null
+        "home": 2,
+        "away": 1
       },
-      "winner": null
+      "winner": "HOME_TEAM"
     },
     {
       "id": 537411,
