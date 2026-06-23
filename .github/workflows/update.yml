@@ -11,11 +11,13 @@ on:
     # tagged "[skip ci]", so they refresh the data without triggering a loop.
     branches: [main]
 
-# Allow the workflow to commit refreshed data and deploy to GitHub Pages.
+# Allow the workflow to commit refreshed data, deploy to GitHub Pages, and
+# (once the tournament is over) disable its own schedule.
 permissions:
   contents: write
   pages: write
   id-token: write
+  actions: write
 
 # Serialize runs but let in-flight Pages deployments finish (cancelling a
 # deploy mid-flight can leave the published site in a bad state).
@@ -67,3 +69,28 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  # Runs only after a successful deploy, so the final results are published
+  # before the recurring schedule is turned off.
+  finalize:
+    needs: [build, deploy]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Stop the schedule once the World Cup is over
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          result="$(python scripts/tournament_over.py)"
+          echo "$result"
+          if [ "${result%%:*}" = "STOP" ]; then
+            echo "World Cup complete — disabling the scheduled workflow."
+            curl -sS -X PUT \
+              -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/update.yml/disable"
+          fi
