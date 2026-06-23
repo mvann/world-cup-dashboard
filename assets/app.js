@@ -1,7 +1,7 @@
 "use strict";
 
 // Auto-refresh the open page so a left-open dashboard keeps current with the
-// data the workflow commits every ~20 minutes.
+// data the workflow commits every ~5 minutes.
 const REFRESH_MS = 60 * 1000;
 
 const KNOCKOUT_STAGES = [
@@ -112,6 +112,58 @@ function ordinal(n) {
 
 /* ---------------- standings ---------------- */
 
+/* ---------------- qualification ---------------- */
+
+// Remaining (not-yet-finished) matches in a group.
+function groupRemaining(group) {
+  return (state.matches.matches || []).filter((m) => m.groupName === group.name && !isFinished(m));
+}
+
+// Teams that have mathematically clinched a top-2 (knockout) spot — brute-forced
+// over every remaining result in the group. Points only, and a points tie is
+// counted against the team, so we never over-claim. Returns a Set of team keys.
+function clinchedTeams(group) {
+  const teams = (group.standings || []).map((r) => ({ key: r.tla || r.team, pts: r.points || 0 }));
+  const rem = groupRemaining(group)
+    .map((m) => ({ home: keyOfTeam(m.home), away: keyOfTeam(m.away) }))
+    .filter((x) => x.home && x.away);
+  const clinched = new Set(teams.map((t) => t.key));
+  const combos = Math.pow(3, rem.length);
+  for (let c = 0; c < combos; c++) {
+    const pts = {};
+    teams.forEach((t) => (pts[t.key] = t.pts));
+    let x = c;
+    for (let i = 0; i < rem.length; i++) {
+      const o = x % 3; x = Math.floor(x / 3);
+      if (o === 0) pts[rem[i].home] += 3;
+      else if (o === 1) { pts[rem[i].home] += 1; pts[rem[i].away] += 1; }
+      else pts[rem[i].away] += 3;
+    }
+    for (const t of teams) {
+      let atOrAbove = 0;
+      for (const r of teams) if (r.key !== t.key && pts[r.key] >= pts[t.key]) atOrAbove++;
+      if (atOrAbove > 1) clinched.delete(t.key);   // could finish 3rd in this scenario
+    }
+  }
+  return clinched;
+}
+
+// Teams already placed into a knockout match (authoritative "through").
+function knockoutTeamKeys() {
+  const set = new Set();
+  for (const m of (state.matches.matches || [])) {
+    if (m.stage === "GROUP_STAGE") continue;
+    const h = keyOfTeam(m.home), a = keyOfTeam(m.away);
+    if (h) set.add(h);
+    if (a) set.add(a);
+  }
+  return set;
+}
+
+function isThroughKey(group, key) {
+  return clinchedTeams(group).has(key) || knockoutTeamKeys().has(key);
+}
+
 // One group's table. currentKey (optional) highlights that team's row — used by
 // the team page to show the team in the context of its group.
 function groupTableEl(g, currentKey) {
@@ -131,14 +183,20 @@ function groupTableEl(g, currentKey) {
     el("th", { text: "Pts" }),
   ]);
   const keys = (Array.isArray(currentKey) ? currentKey : [currentKey]).filter(Boolean);
+  const through = clinchedTeams(g);
+  const ko = knockoutTeamKeys();
   const tbody = el("tbody");
   (g.standings || []).forEach((row, i) => {
+    const key = row.tla || row.team;
     const isCurrent = keys.some((k) => row.tla === k || row.team === k);
     const cls = (i < 2 ? "qualify" : "") + (isCurrent ? " current" : "");
     const tr = el("tr", { class: cls.trim() || null }, [
       el("td", { class: "pos", text: String(row.position ?? i + 1) }),
       el("td", { class: "team-cell" }, [
-        teamLinkEl(row.tla || row.team, [crestImg(row), el("span", { class: "name", text: row.team })]),
+        teamLinkEl(key, [crestImg(row), el("span", { class: "name", text: row.team })]),
+        (through.has(key) || ko.has(key))
+          ? el("span", { class: "qual-badge", title: "Clinched a knockout spot", "aria-label": "Qualified", text: "✓" })
+          : null,
       ]),
       el("td", { text: String(row.playedGames) }),
       el("td", { text: String(row.won) }),
@@ -164,7 +222,12 @@ function renderStandings() {
   }
   for (const g of groups) root.appendChild(groupTableEl(g, null));
   root.appendChild(el("div", { class: "legend" }, [
-    el("span", { class: "swatch" }), "Top two of each group advance to the knockout stage.",
+    el("span", { class: "swatch" }),
+    el("span", {}, [
+      "Top two of each group advance. ",
+      el("span", { class: "qual-badge", text: "✓" }),
+      " marks a team that has clinched a knockout spot.",
+    ]),
   ]));
 }
 
@@ -419,6 +482,7 @@ function renderTeamView(key) {
     metaBits.push(found.group.name || ("Group " + (found.group.short || "")));
     if (found.row.position != null) metaBits.push(ordinal(found.row.position) + " place");
     metaBits.push(found.row.points + " pts");
+    if (isThroughKey(found.group, found.row.tla || found.row.team)) metaBits.push("Through");
   }
   root.appendChild(el("div", { class: "team-head" }, [
     crestImg({ crest }),
@@ -550,7 +614,7 @@ function renderMeta() {
   const footer = document.getElementById("footer-note");
   footer.textContent = meta.updated
     ? `Last refresh: ${new Date(meta.updated).toLocaleString()}`
-    : "Auto-updates every 20 minutes.";
+    : "Auto-updates every 5 minutes.";
 }
 
 // Live matches show as a stacked, blinking ticker top-right of the masthead.

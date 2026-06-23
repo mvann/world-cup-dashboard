@@ -6,7 +6,7 @@ A static GitHub Pages dashboard for the FIFA World Cup. It shows:
 - **Calendar** — the full match schedule grouped by day, with live indicators, kickoff times and final scores. Filter by Live / Today / Upcoming / Results.
 - **Bracket** — the knockout bracket, rendered as an empty skeleton from the start and filled in automatically as teams earn their placements. Crowns a champion once the final is decided.
 
-Data is fetched from [football-data.org](https://www.football-data.org/) by a GitHub Actions workflow that runs **every 20 minutes**, commits the refreshed JSON, and redeploys the site. An open browser tab also re-polls the data once a minute.
+Data is fetched from [football-data.org](https://www.football-data.org/) by a GitHub Actions workflow that runs **every 5 minutes**, commits the refreshed JSON, and redeploys the site. An open browser tab also re-polls the data once a minute.
 
 ## How it works
 
@@ -18,14 +18,14 @@ data/standings.json  # group tables        (written by the workflow)
 data/matches.json    # all fixtures/results (written by the workflow)
 data/meta.json       # last-updated + status
 scripts/fetch_data.py        # pulls from football-data.org and writes data/*.json
-.github/workflows/update.yml # cron (every 20 min) + deploy
+.github/workflows/update.yml # cron (every 5 min) + deploy
 ```
 
 The site is 100% static — no build step. `app.js` just reads the three JSON files in `data/`.
 
 ## One-time setup
 
-1. **Get a free API key** at <https://www.football-data.org/client/register>. The free tier covers the World Cup competition and is well within rate limits at one fetch / 20 min.
+1. **Get a free API key** at <https://www.football-data.org/client/register>. The free tier covers the World Cup competition and is well within rate limits at two calls / 5 min.
 
 2. **Add it as a repository secret** named `FOOTBALL_DATA_API_KEY`:
    `Settings → Secrets and variables → Actions → New repository secret`.
