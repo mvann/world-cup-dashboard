@@ -1933,10 +1933,10 @@
       "groupName": null,
       "matchday": null,
       "home": {
-        "id": 759,
-        "name": "Germany",
-        "tla": "GER",
-        "crest": "https://crests.football-data.org/759.svg"
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
       },
       "away": {
         "id": null,
@@ -2037,10 +2037,10 @@
       "groupName": null,
       "matchday": null,
       "home": {
-        "id": 769,
-        "name": "Mexico",
-        "tla": "MEX",
-        "crest": "https://crests.football-data.org/769.svg"
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
       },
       "away": {
         "id": null,
@@ -2115,10 +2115,10 @@
       "groupName": null,
       "matchday": null,
       "home": {
-        "id": 771,
-        "name": "United States",
-        "tla": "USA",
-        "crest": "https://crests.football-data.org/usa.svg"
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
       },
       "away": {
         "id": null,
