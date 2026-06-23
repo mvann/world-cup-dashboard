@@ -24,6 +24,10 @@
         "home": 2,
         "away": 0
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "HOME_TEAM"
     },
     {
@@ -49,6 +53,10 @@
       "score": {
         "home": 2,
         "away": 1
+      },
+      "penalties": {
+        "home": null,
+        "away": null
       },
       "winner": "HOME_TEAM"
     },
@@ -76,6 +84,10 @@
         "home": 1,
         "away": 1
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "DRAW"
     },
     {
@@ -101,6 +113,10 @@
       "score": {
         "home": 4,
         "away": 1
+      },
+      "penalties": {
+        "home": null,
+        "away": null
       },
       "winner": "HOME_TEAM"
     },
@@ -128,6 +144,10 @@
         "home": 1,
         "away": 1
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "DRAW"
     },
     {
@@ -153,6 +173,10 @@
       "score": {
         "home": 1,
         "away": 1
+      },
+      "penalties": {
+        "home": null,
+        "away": null
       },
       "winner": "DRAW"
     },
@@ -180,6 +204,10 @@
         "home": 0,
         "away": 1
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "AWAY_TEAM"
     },
     {
@@ -206,6 +234,10 @@
         "home": 2,
         "away": 0
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "HOME_TEAM"
     },
     {
@@ -225,12 +257,16 @@
       "away": {
         "id": 9460,
         "name": "Curaçao",
-        "tla": "CUR",
+        "tla": "CUW",
         "crest": "https://crests.football-data.org/curacao.svg"
       },
       "score": {
         "home": 7,
         "away": 1
+      },
+      "penalties": {
+        "home": null,
+        "away": null
       },
       "winner": "HOME_TEAM"
     },
@@ -258,6 +294,10 @@
         "home": 2,
         "away": 2
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "DRAW"
     },
     {
@@ -283,6 +323,10 @@
       "score": {
         "home": 1,
         "away": 0
+      },
+      "penalties": {
+        "home": null,
+        "away": null
       },
       "winner": "HOME_TEAM"
     },
@@ -310,6 +354,10 @@
         "home": 5,
         "away": 1
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "HOME_TEAM"
     },
     {
@@ -335,6 +383,10 @@
       "score": {
         "home": 0,
         "away": 0
+      },
+      "penalties": {
+        "home": null,
+        "away": null
       },
       "winner": "DRAW"
     },
@@ -362,6 +414,10 @@
         "home": 1,
         "away": 1
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "DRAW"
     },
     {
@@ -381,12 +437,16 @@
       "away": {
         "id": 758,
         "name": "Uruguay",
-        "tla": "URY",
+        "tla": "URU",
         "crest": "https://crests.football-data.org/758.svg"
       },
       "score": {
         "home": 1,
         "away": 1
+      },
+      "penalties": {
+        "home": null,
+        "away": null
       },
       "winner": "DRAW"
     },
@@ -414,6 +474,10 @@
         "home": 2,
         "away": 2
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "DRAW"
     },
     {
@@ -439,6 +503,10 @@
       "score": {
         "home": 3,
         "away": 1
+      },
+      "penalties": {
+        "home": null,
+        "away": null
       },
       "winner": "HOME_TEAM"
     },
@@ -466,6 +534,10 @@
         "home": 1,
         "away": 4
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "AWAY_TEAM"
     },
     {
@@ -491,6 +563,10 @@
       "score": {
         "home": 3,
         "away": 0
+      },
+      "penalties": {
+        "home": null,
+        "away": null
       },
       "winner": "HOME_TEAM"
     },
@@ -518,6 +594,10 @@
         "home": 3,
         "away": 1
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "HOME_TEAM"
     },
     {
@@ -543,6 +623,10 @@
       "score": {
         "home": 1,
         "away": 1
+      },
+      "penalties": {
+        "home": null,
+        "away": null
       },
       "winner": "DRAW"
     },
@@ -570,6 +654,10 @@
         "home": 4,
         "away": 2
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "HOME_TEAM"
     },
     {
@@ -595,6 +683,10 @@
       "score": {
         "home": 1,
         "away": 0
+      },
+      "penalties": {
+        "home": null,
+        "away": null
       },
       "winner": "HOME_TEAM"
     },
@@ -622,6 +714,10 @@
         "home": 1,
         "away": 3
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "AWAY_TEAM"
     },
     {
@@ -647,6 +743,10 @@
       "score": {
         "home": 1,
         "away": 1
+      },
+      "penalties": {
+        "home": null,
+        "away": null
       },
       "winner": "DRAW"
     },
@@ -674,6 +774,10 @@
         "home": 4,
         "away": 1
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "HOME_TEAM"
     },
     {
@@ -699,6 +803,10 @@
       "score": {
         "home": 6,
         "away": 0
+      },
+      "penalties": {
+        "home": null,
+        "away": null
       },
       "winner": "HOME_TEAM"
     },
@@ -726,6 +834,10 @@
         "home": 1,
         "away": 0
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "HOME_TEAM"
     },
     {
@@ -751,6 +863,10 @@
       "score": {
         "home": 2,
         "away": 0
+      },
+      "penalties": {
+        "home": null,
+        "away": null
       },
       "winner": "HOME_TEAM"
     },
@@ -778,6 +894,10 @@
         "home": 0,
         "away": 1
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "AWAY_TEAM"
     },
     {
@@ -803,6 +923,10 @@
       "score": {
         "home": 3,
         "away": 0
+      },
+      "penalties": {
+        "home": null,
+        "away": null
       },
       "winner": "HOME_TEAM"
     },
@@ -830,6 +954,10 @@
         "home": 0,
         "away": 1
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "AWAY_TEAM"
     },
     {
@@ -855,6 +983,10 @@
       "score": {
         "home": 5,
         "away": 1
+      },
+      "penalties": {
+        "home": null,
+        "away": null
       },
       "winner": "HOME_TEAM"
     },
@@ -882,6 +1014,10 @@
         "home": 2,
         "away": 1
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "HOME_TEAM"
     },
     {
@@ -901,12 +1037,16 @@
       "away": {
         "id": 9460,
         "name": "Curaçao",
-        "tla": "CUR",
+        "tla": "CUW",
         "crest": "https://crests.football-data.org/curacao.svg"
       },
       "score": {
         "home": 0,
         "away": 0
+      },
+      "penalties": {
+        "home": null,
+        "away": null
       },
       "winner": "DRAW"
     },
@@ -934,6 +1074,10 @@
         "home": 0,
         "away": 4
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "AWAY_TEAM"
     },
     {
@@ -959,6 +1103,10 @@
       "score": {
         "home": 4,
         "away": 0
+      },
+      "penalties": {
+        "home": null,
+        "away": null
       },
       "winner": "HOME_TEAM"
     },
@@ -986,6 +1134,10 @@
         "home": 0,
         "away": 0
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "DRAW"
     },
     {
@@ -999,7 +1151,7 @@
       "home": {
         "id": 758,
         "name": "Uruguay",
-        "tla": "URY",
+        "tla": "URU",
         "crest": "https://crests.football-data.org/758.svg"
       },
       "away": {
@@ -1011,6 +1163,10 @@
       "score": {
         "home": 2,
         "away": 2
+      },
+      "penalties": {
+        "home": null,
+        "away": null
       },
       "winner": "DRAW"
     },
@@ -1038,6 +1194,10 @@
         "home": 1,
         "away": 3
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "AWAY_TEAM"
     },
     {
@@ -1063,6 +1223,10 @@
       "score": {
         "home": 2,
         "away": 0
+      },
+      "penalties": {
+        "home": null,
+        "away": null
       },
       "winner": "HOME_TEAM"
     },
@@ -1090,6 +1254,10 @@
         "home": 3,
         "away": 0
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "HOME_TEAM"
     },
     {
@@ -1115,6 +1283,10 @@
       "score": {
         "home": 3,
         "away": 2
+      },
+      "penalties": {
+        "home": null,
+        "away": null
       },
       "winner": "HOME_TEAM"
     },
@@ -1142,6 +1314,10 @@
         "home": 1,
         "away": 2
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "AWAY_TEAM"
     },
     {
@@ -1168,12 +1344,16 @@
         "home": 5,
         "away": 0
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": "HOME_TEAM"
     },
     {
       "id": 537411,
       "utcDate": "2026-06-23T20:00:00Z",
-      "status": "LIVE",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "GROUP_L",
       "groupName": "Group L",
@@ -1193,6 +1373,10 @@
       "score": {
         "home": 0,
         "away": 0
+      },
+      "penalties": {
+        "home": null,
+        "away": null
       },
       "winner": "DRAW"
     },
@@ -1217,6 +1401,10 @@
         "crest": "https://crests.football-data.org/799.svg"
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -1246,6 +1434,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -1269,6 +1461,10 @@
         "crest": "https://crests.football-data.org/canada.svg"
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -1298,6 +1494,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -1321,6 +1521,10 @@
         "crest": "https://crests.football-data.org/764.svg"
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -1350,6 +1554,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -1373,6 +1581,10 @@
         "crest": "https://crests.football-data.org/769.svg"
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -1402,6 +1614,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -1428,6 +1644,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -1441,7 +1661,7 @@
       "home": {
         "id": 9460,
         "name": "Curaçao",
-        "tla": "CUR",
+        "tla": "CUW",
         "crest": "https://crests.football-data.org/curacao.svg"
       },
       "away": {
@@ -1451,6 +1671,10 @@
         "crest": "https://crests.football-data.org/787.svg"
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -1480,6 +1704,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -1503,6 +1731,10 @@
         "crest": "https://crests.football-data.org/792.svg"
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -1532,6 +1764,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -1555,6 +1791,10 @@
         "crest": "https://crests.football-data.org/779.svg"
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -1584,6 +1824,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -1610,6 +1854,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -1623,7 +1871,7 @@
       "home": {
         "id": 758,
         "name": "Uruguay",
-        "tla": "URY",
+        "tla": "URU",
         "crest": "https://crests.football-data.org/758.svg"
       },
       "away": {
@@ -1633,6 +1881,10 @@
         "crest": "https://crests.football-data.org/760.svg"
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -1662,6 +1914,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -1685,6 +1941,10 @@
         "crest": "https://crests.football-data.org/805.svg"
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -1714,6 +1974,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -1737,6 +2001,10 @@
         "crest": "https://crests.football-data.org/770.svg"
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -1766,6 +2034,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -1789,6 +2061,10 @@
         "crest": "https://crests.football-data.org/765.svg"
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -1818,6 +2094,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -1841,6 +2121,10 @@
         "crest": "https://crests.football-data.org/762.png"
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -1870,6 +2154,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -1893,6 +2181,10 @@
         "crest": null
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -1922,6 +2214,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -1945,6 +2241,10 @@
         "crest": null
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -1974,6 +2274,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -1997,6 +2301,10 @@
         "crest": null
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -2026,6 +2334,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -2049,6 +2361,10 @@
         "crest": null
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -2078,6 +2394,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -2101,6 +2421,10 @@
         "crest": null
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -2130,6 +2454,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -2153,6 +2481,10 @@
         "crest": null
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -2182,6 +2514,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -2205,6 +2541,10 @@
         "crest": null
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -2234,6 +2574,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -2257,6 +2601,10 @@
         "crest": null
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -2286,6 +2634,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -2309,6 +2661,10 @@
         "crest": null
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -2338,6 +2694,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -2361,6 +2721,10 @@
         "crest": null
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -2390,6 +2754,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -2413,6 +2781,10 @@
         "crest": null
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -2442,6 +2814,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -2465,6 +2841,10 @@
         "crest": null
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -2494,6 +2874,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -2517,6 +2901,10 @@
         "crest": null
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -2546,6 +2934,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -2569,6 +2961,10 @@
         "crest": null
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -2598,6 +2994,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -2621,6 +3021,10 @@
         "crest": null
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
@@ -2650,6 +3054,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -2676,6 +3084,10 @@
         "home": null,
         "away": null
       },
+      "penalties": {
+        "home": null,
+        "away": null
+      },
       "winner": null
     },
     {
@@ -2699,6 +3111,10 @@
         "crest": null
       },
       "score": {
+        "home": null,
+        "away": null
+      },
+      "penalties": {
         "home": null,
         "away": null
       },
