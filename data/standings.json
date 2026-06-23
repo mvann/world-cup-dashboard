@@ -777,14 +777,14 @@
           "team": "Panama",
           "tla": "PAN",
           "crest": "https://crests.football-data.org/panama.svg",
-          "playedGames": 1,
+          "playedGames": 2,
           "won": 0,
-          "draw": 0,
+          "draw": 1,
           "lost": 1,
           "goalsFor": 0,
           "goalsAgainst": 1,
           "goalDifference": -1,
-          "points": 0,
+          "points": 1,
           "form": null
         },
         {
@@ -792,14 +792,14 @@
           "team": "Croatia",
           "tla": "CRO",
           "crest": "https://crests.football-data.org/799.svg",
-          "playedGames": 1,
+          "playedGames": 2,
           "won": 0,
-          "draw": 0,
+          "draw": 1,
           "lost": 1,
           "goalsFor": 2,
           "goalsAgainst": 4,
           "goalDifference": -2,
-          "points": 0,
+          "points": 1,
           "form": null
         }
       ]
