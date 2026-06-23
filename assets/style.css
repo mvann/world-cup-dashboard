@@ -11,7 +11,7 @@
   --muted:   #6E675D;
   --accent:  #F19F1D;
   --hover:   rgba(241, 159, 29, 0.13);  /* subtle tint marking a clickable game */
-  --grain:   0.4;                        /* paper-grain overlay opacity */
+  --grain:   0.35;                       /* paper-grain overlay opacity */
   --rule:    #111111;             /* strong structural rules */
   --rule-soft: #D8CEBF;           /* hairline dividers */
   --font: "Inter", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
@@ -374,6 +374,7 @@ main { flex: 1 0 auto; padding: 36px var(--pad) 60px; }
   letter-spacing: 0.02em;
 }
 .match-score .vs { color: var(--muted); font-weight: 700; font-size: 12px; }
+.match-score .pens { font-size: 9px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 2px; }
 .match-meta { font-size: 10px; color: var(--muted); text-align: right; text-transform: uppercase; letter-spacing: 0.08em; }
 
 /* ---------- Bracket ----------
@@ -531,6 +532,13 @@ a.team-link:hover .name {
   margin-bottom: 16px;
 }
 .game-head { max-width: 460px; margin-bottom: 16px; }
+.game-pens {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 18px;
+}
 .game-team {
   display: flex;
   align-items: center;

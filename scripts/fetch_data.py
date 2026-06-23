@@ -112,6 +112,7 @@ def transform_matches(raw: dict) -> dict:
     for m in raw.get("matches", []):
         score = m.get("score") or {}
         full = score.get("fullTime") or {}
+        pens = score.get("penalties") or {}
         matches.append({
             "id": m.get("id"),
             "utcDate": m.get("utcDate"),
@@ -123,6 +124,7 @@ def transform_matches(raw: dict) -> dict:
             "home": team_obj(m.get("homeTeam")),
             "away": team_obj(m.get("awayTeam")),
             "score": {"home": full.get("home"), "away": full.get("away")},
+            "penalties": {"home": pens.get("home"), "away": pens.get("away")},
             "winner": score.get("winner"),
         })
     matches.sort(key=lambda x: (x.get("utcDate") or "", x.get("id") or 0))

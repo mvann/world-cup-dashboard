@@ -81,6 +81,7 @@ function crestImg(team) {
 function isLive(m) { return LIVE_STATUSES.has(m.status); }
 function isFinished(m) { return FINISHED_STATUSES.has(m.status); }
 function hasScore(m) { return m.score && m.score.home != null && m.score.away != null; }
+function penScore(m) { const p = m && m.penalties; return p && p.home != null && p.away != null ? p : null; }
 
 function fmtDay(d) {
   return d.toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" });
@@ -315,8 +316,12 @@ function renderMatchRow(m) {
   const homeWin = m.winner === "HOME";
   const awayWin = m.winner === "AWAY";
 
+  const pens = penScore(m);
   const scoreEl = showScore
-    ? el("div", { class: "match-score", text: `${m.score.home} – ${m.score.away}` })
+    ? el("div", { class: "match-score" }, [
+        el("div", { text: `${m.score.home} – ${m.score.away}` }),
+        pens ? el("div", { class: "pens", text: `${pens.home}–${pens.away} pens` }) : null,
+      ])
     : el("div", { class: "match-score" }, el("span", { class: "vs", text: "v" }));
 
   const stageLabel = m.groupName || stageTitle(m.stage) || "";
@@ -396,20 +401,22 @@ function renderBracketMatch(m, isFinal) {
     return el("div", { class: cls }, [bracketTeamRow(null, null, false), bracketTeamRow(null, null, false)]);
   }
   const showScore = hasScore(m) && (isLive(m) || isFinished(m));
+  const pens = penScore(m);
   return el("div", { class: cls, "data-game": m.id }, [
-    bracketTeamRow(m.home, showScore ? m.score.home : null, m.winner === "HOME"),
-    bracketTeamRow(m.away, showScore ? m.score.away : null, m.winner === "AWAY"),
+    bracketTeamRow(m.home, showScore ? m.score.home : null, m.winner === "HOME", pens ? pens.home : null),
+    bracketTeamRow(m.away, showScore ? m.score.away : null, m.winner === "AWAY", pens ? pens.away : null),
   ]);
 }
 
-function bracketTeamRow(team, score, isWinner) {
+function bracketTeamRow(team, score, isWinner, pen) {
   const key = keyOfTeam(team);
   const nameKids = key
     ? [crestImg(team), el("span", { class: "name", text: team.name })]
     : [el("span", { class: "crest", "aria-hidden": "true" }), el("span", { class: "name", text: "TBD" })];
+  const scoreText = score == null ? "" : (pen != null ? `${score} (${pen})` : String(score));
   return el("div", { class: "bracket-team" + (key ? "" : " tbd") + (isWinner ? " winner" : "") }, [
     teamLinkEl(key, nameKids),
-    el("span", { class: "sc", text: score == null ? "" : String(score) }),
+    el("span", { class: "sc", text: scoreText }),
   ]);
 }
 
@@ -530,6 +537,11 @@ function renderGameView(id) {
     teamRow(m.home, m.score.home, m.winner === "HOME"),
     teamRow(m.away, m.score.away, m.winner === "AWAY"),
   ]));
+
+  const pens = penScore(m);
+  if (pens) {
+    root.appendChild(el("div", { class: "game-pens", text: `Penalty shootout — ${pens.home}–${pens.away}` }));
+  }
 
   let kickoff;
   if (live) kickoff = "In progress";
