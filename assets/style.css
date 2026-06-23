@@ -27,9 +27,9 @@
    never black or paper. The body keeps the paper reading surface. */
 /* Reserve the scrollbar gutter so switching between a tall tab (Groups) and a
    short one (Calendar) doesn't shift the centred layout sideways. The root is
-   the paper/bone colour so overscroll areas (top + bottom, incl. iOS Safari's
-   rubber-band) match the page instead of showing pure white. */
-html { background: var(--paper); scrollbar-gutter: stable; }
+   yellow so overscroll areas and the iOS top safe-area read as the masthead
+   colour, not white. */
+html { background: var(--accent); scrollbar-gutter: stable; }
 /* Column flex + min-height pins the footer to the bottom on short pages. */
 body { background: var(--paper); min-height: 100vh; display: flex; flex-direction: column; }
 
@@ -80,7 +80,9 @@ a:hover { background: var(--accent); }
   gap: 24px;
   flex-wrap: wrap;
   min-height: 220px;
-  padding: 28px var(--pad) 2px;
+  /* Add the iOS top safe-area inset so the yellow fills behind the Dynamic
+     Island (env() is 0 everywhere else, so no change on desktop). */
+  padding: calc(28px + env(safe-area-inset-top)) var(--pad) 2px;
 }
 /* Black square sitting to the LEFT of the title. Its right edge lands ~5px left
    of the title's "w" (the title sits at --pad, nudged -6px), and translateX pulls
