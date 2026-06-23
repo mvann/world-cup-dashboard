@@ -13,10 +13,6 @@ const KNOCKOUT_STAGES = [
   { key: "FINAL", title: "Final", count: 1 },
 ];
 
-// Rounds that form the single-elimination tree (third place is tucked under the
-// final rather than getting its own column).
-const TREE_STAGES = KNOCKOUT_STAGES.filter((s) => s.key !== "THIRD_PLACE");
-
 const LIVE_STATUSES = new Set(["IN_PLAY", "PAUSED", "LIVE"]);
 const FINISHED_STATUSES = new Set(["FINISHED", "AWARDED"]);
 
@@ -278,47 +274,26 @@ function renderBracket() {
     ]));
   }
 
-  // Indented tree: the full skeleton is always drawn so the bracket is visible
-  // from the start and fills in as teams are placed. The third-place match sits
-  // in its own lane between the semi-finals and the final.
-  const tree = el("div", { class: "bracket-tree" });
-  tree.style.setProperty("--rows", String(TREE_STAGES[0].count));
-
-  const thirdStage = KNOCKOUT_STAGES.find((s) => s.key === "THIRD_PLACE");
-  const columns = [
-    ...TREE_STAGES.slice(0, 4).map((stage) => ({ stage })), // R32, R16, QF, SF
-    { stage: thirdStage, third: true },
-    { stage: TREE_STAGES[4] },                              // Final
-  ];
-  const last = columns.length - 1;
-
-  columns.forEach((cdef, i) => {
-    const stage = cdef.stage;
-    const isFinal = stage.key === "FINAL";
-    const body = el("div", {
-      class: "round-body" + (isFinal ? " final-body" : "") + (cdef.third ? " third-body" : ""),
-    });
+  // Six columns, one per stage (R32, R16, QF, SF, third place, final). Each is a
+  // simple top-aligned stack of game boxes; the full skeleton renders from the
+  // start and fills in as teams advance.
+  const grid = el("div", { class: "bracket-grid" });
+  for (const stage of KNOCKOUT_STAGES) {
+    const col = el("div", { class: "bracket-col" });
     const matches = stageMatches(stage.key);
     for (let k = 0; k < stage.count; k++) {
       const label = stage.count > 1 ? `${stage.title} · ${k + 1}` : stage.title;
-      body.appendChild(bracketSlot(matches[k], label, isFinal, cdef.third));
+      col.appendChild(bracketSlot(matches[k], label, stage.key === "FINAL"));
     }
-    const col = el("div", { class: "round-col" }, body);
-    // Each column is pushed right by an equal share of the leftover width, so
-    // the final lands flush against the right edge.
-    col.style.left = `calc((100% - var(--box)) * ${i} / ${last})`;
-    tree.appendChild(col);
-  });
-
-  root.appendChild(tree);
+    grid.appendChild(col);
+  }
+  root.appendChild(grid);
 }
 
-function bracketSlot(m, label, isFinal, isThird) {
-  const box = renderBracketMatch(m, isFinal);
-  if (isThird) box.classList.add("third-place");
+function bracketSlot(m, label, isFinal) {
   return el("div", { class: "bracket-slot" }, [
     el("div", { class: "game-label", text: label }),
-    box,
+    renderBracketMatch(m, isFinal),
   ]);
 }
 
@@ -353,21 +328,22 @@ function bracketTeamRow(team, score, isWinner) {
 function renderMeta() {
   const meta = state.meta || {};
   if (meta.competition) {
-    // Drop "FIFA" everywhere; the masthead title-cases what's left.
+    // Drop "FIFA" everywhere; the masthead lowercases what's left. The year is
+    // wrapped so it can be scaled down to the height of the lowercase text.
     const name = meta.competition.replace(/\bFIFA\b/gi, "").replace(/\s+/g, " ").trim() || "World Cup";
-    document.getElementById("comp-title").textContent =
-      name + (meta.season ? ` ${meta.season}` : "");
+    const title = document.getElementById("comp-title");
+    title.textContent = name;
+    if (meta.season) {
+      title.appendChild(document.createTextNode(" "));
+      title.appendChild(el("span", { class: "title-year", text: String(meta.season) }));
+    }
   }
 
   const dot = document.getElementById("live-dot");
   const label = document.getElementById("updated-label");
-  const anyLive = (state.matches.matches || []).some(isLive);
 
   dot.className = "dot";
-  if (anyLive) {
-    dot.classList.add("live");
-    label.textContent = "Matches in progress";
-  } else if (meta.ok && meta.updated) {
+  if (meta.ok && meta.updated) {
     dot.classList.add("ok");
     label.textContent = "Updated " + relativeTime(meta.updated);
   } else if (meta.updated) {

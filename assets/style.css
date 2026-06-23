@@ -23,8 +23,11 @@
 
 /* The root is yellow so overscrolling up (past the masthead) reveals yellow,
    never black or paper. The body keeps the paper reading surface. */
-html { background: var(--accent); }
-body { background: var(--paper); }
+/* Reserve the scrollbar gutter so switching between a tall tab (Groups) and a
+   short one (Calendar) doesn't shift the centred layout sideways. */
+html { background: var(--accent); scrollbar-gutter: stable; }
+/* Column flex + min-height pins the footer to the bottom on short pages. */
+body { background: var(--paper); min-height: 100vh; display: flex; flex-direction: column; }
 
 html, body {
   margin: 0;
@@ -91,6 +94,9 @@ a:hover { background: var(--accent); }
   line-height: 0.92;
   text-transform: lowercase;
 }
+/* Fake "lowercase" digits by scaling the year down to ~lowercase height; thin
+   weight per the brief. */
+.title-year { font-size: 0.78em; font-weight: 300; }
 .status {
   display: flex;
   align-items: center;
@@ -136,7 +142,7 @@ a:hover { background: var(--accent); }
 /* "Updated …" rides at the right of the tab bar, vertically centred. */
 .tabs .status { margin-left: auto; align-self: center; }
 
-main { padding: 36px var(--pad) 60px; }
+main { flex: 1 0 auto; padding: 36px var(--pad) 60px; }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
 
@@ -242,24 +248,21 @@ main { padding: 36px var(--pad) 60px; }
 .filter-chips {
   display: flex;
   flex-wrap: wrap;
-  border: 2px solid var(--rule);
-  width: fit-content;
+  gap: 6px;
   max-width: 100%;
 }
 .chip {
-  background: var(--paper);
+  background: transparent;
   border: none;
-  border-right: 2px solid var(--rule);
   color: var(--muted);
   font-family: inherit;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  padding: 9px 16px;
+  padding: 7px 12px;
   cursor: pointer;
 }
-.chip:last-child { border-right: none; }
 .chip:hover { color: var(--ink); }
 .chip.active { background: var(--accent); color: var(--ink); }
 
@@ -271,15 +274,14 @@ main { padding: 36px var(--pad) 60px; }
   text-transform: uppercase;
   letter-spacing: 0.12em;
   padding-bottom: 8px;
-  border-bottom: 2px solid var(--rule);
+  border-bottom: 1px solid var(--ink);   /* single structural rule per day */
 }
 .match-row {
   display: grid;
   grid-template-columns: 78px 1fr auto 1fr 104px;
   align-items: center;
   gap: 12px;
-  padding: 14px 4px;
-  border-bottom: 1px solid var(--rule-soft);
+  padding: 12px 4px;
 }
 .match-row.is-live { box-shadow: inset 4px 0 0 var(--accent); }
 .match-time {
@@ -315,76 +317,64 @@ main { padding: 36px var(--pad) 60px; }
 .match-score .vs { color: var(--muted); font-weight: 700; font-size: 12px; }
 .match-meta { font-size: 10px; color: var(--muted); text-align: right; text-transform: uppercase; letter-spacing: 0.08em; }
 
-/* ---------- Bracket (geometry preserved; Swiss restyle) ----------
-   The whole tree fits the viewport WIDTH: every game box is --box wide and each
-   column is pushed right by an equal share of the leftover space, so the final
-   sits flush right. Columns are the same height and use space-around, so each
-   match centres vertically between the two that feed it. You scroll down. */
+/* ---------- Bracket ----------
+   Six columns (R32, R16, QF, SF, third place, final), each a top-aligned stack
+   of game boxes. Boxes are transparent — just the country names with a single
+   black rule down the left edge. The whole grid's font-size scales with the
+   viewport so all six columns fit on a phone in portrait without sideways
+   scrolling. */
 .bracket { padding-bottom: 16px; }
-.bracket-tree {
-  position: relative;
-  --box: 200px;
-  --pitch: 196px;
-  max-width: 1120px;
-  height: calc(var(--rows, 16) * var(--pitch));
-  margin: 0 auto;
+.bracket-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr;
+  align-items: stretch;
+  column-gap: clamp(6px, 1.2vw, 16px);
+  font-size: clamp(7px, 1.5vw, 13px);
+  /* Fixed height (one --pitch per first-round slot) lets each column distribute
+     its boxes with space-around, so every game lands vertically centred between
+     the two that feed it. Height is in em, so it scales with the font. */
+  --pitch: 5.6em;
+  height: calc(16 * var(--pitch));
 }
-.round-col {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: var(--box);
-}
-.round-body {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+.bracket-col {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  min-width: 0;
 }
-.round-body.final-body { justify-content: center; }
-/* Third place gets its own lane between the semis and the final; nudge it below
-   centre so it never overlaps the (centred) final box beside it. */
-.round-body.third-body { display: block; }
-.round-body.third-body .bracket-slot {
-  position: absolute;
-  top: 56%;
-  left: 0;
-  width: 100%;
-}
-.bracket-slot { display: flex; flex-direction: column; }
+.bracket-slot { display: flex; flex-direction: column; min-width: 0; }
+/* Left rule runs down the label as well as the box. */
 .game-label {
-  font-size: 10px;
-  font-weight: 700;
+  font-size: 0.78em;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: var(--muted);
-  margin-bottom: 5px;
+  margin-bottom: 0.45em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  border-left: 2px solid var(--ink);
+  padding-left: 0.5em;
 }
+/* Transparent box with a rule on both the left and right edges. */
 .bracket-match {
-  background: var(--panel);
-  border: 2px solid var(--rule);
+  border-left: 2px solid var(--ink);
+  border-right: 2px solid var(--ink);
+  padding: 0 0.5em;
 }
-.bracket-match.final { box-shadow: 0 0 0 4px var(--accent); }
-.bracket-match.third-place { border-style: dashed; }
 .bracket-team {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
-  font-size: 13px;
+  gap: 0.4em;
+  padding: 0.18em 0;
+  font-size: 1em;
 }
-.bracket-team + .bracket-team { border-top: 1px solid var(--rule-soft); }
-.bracket-team .name { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bracket-team .crest { width: 1.2em; height: 1.2em; }
+.bracket-team .name { flex: 1; min-width: 0; overflow-wrap: anywhere; font-weight: 600; }
 .bracket-team .sc { font-weight: 800; font-variant-numeric: tabular-nums; }
-.bracket-team.tbd .name { color: var(--muted); }
-.bracket-team.winner { background: var(--accent); }
+.bracket-team.tbd .name { color: var(--muted); font-weight: 400; }
 .bracket-team.winner .name { font-weight: 800; }
 
 .champion-card {
@@ -431,10 +421,5 @@ main { padding: 36px var(--pad) 60px; }
   .match-meta { display: none; }
   .match-team .name { font-size: 13px; }
 
-  /* Same fit-to-width tree, narrower box and tighter rows for a phone. */
-  .bracket-tree { --box: 44vw; --pitch: 178px; }
-  .bracket-team { font-size: 12px; padding: 7px 8px; gap: 6px; }
-  .bracket-team .crest { width: 16px; height: 16px; }
-  .game-label { font-size: 9px; }
   .champion-card { padding: 14px 16px; }
 }
