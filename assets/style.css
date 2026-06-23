@@ -31,9 +31,9 @@
    colour, not white. */
 html { background: var(--accent); scrollbar-gutter: stable; }
 /* Column flex + min-height pins the footer to the bottom on short pages. Body is
-   yellow so every overscroll / safe-area edge reads yellow; the paper reading
-   surface lives on <main>. */
-body { background: var(--accent); min-height: 100vh; display: flex; flex-direction: column; }
+   the paper surface, so the bottom overscroll reads bone; the masthead fills the
+   yellow top safe-area itself. */
+body { background: var(--paper); min-height: 100vh; display: flex; flex-direction: column; }
 
 html, body {
   margin: 0;
@@ -202,7 +202,7 @@ a:hover { background: var(--accent); }
 /* "Updated …" rides at the right of the tab bar, vertically centred. */
 .tabs .status { margin-left: auto; align-self: center; }
 
-main { flex: 1 0 auto; background: var(--paper); padding: 36px var(--pad) 60px; }
+main { flex: 1 0 auto; padding: 36px var(--pad) 60px; }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
 
