@@ -275,36 +275,47 @@ function renderBracket() {
   }
 
   // Indented tree: the full skeleton is always drawn so the bracket is visible
-  // from the start and fills in as teams are placed.
+  // from the start and fills in as teams are placed. The third-place match sits
+  // in its own lane between the semi-finals and the final.
   const tree = el("div", { class: "bracket-tree" });
   tree.style.setProperty("--rows", String(TREE_STAGES[0].count));
-  const last = TREE_STAGES.length - 1;
 
-  TREE_STAGES.forEach((stage, i) => {
+  const thirdStage = KNOCKOUT_STAGES.find((s) => s.key === "THIRD_PLACE");
+  const columns = [
+    ...TREE_STAGES.slice(0, 4).map((stage) => ({ stage })), // R32, R16, QF, SF
+    { stage: thirdStage, third: true },
+    { stage: TREE_STAGES[4] },                              // Final
+  ];
+  const last = columns.length - 1;
+
+  columns.forEach((cdef, i) => {
+    const stage = cdef.stage;
     const isFinal = stage.key === "FINAL";
-    const body = el("div", { class: "round-body" + (isFinal ? " final-body" : "") });
+    const body = el("div", {
+      class: "round-body" + (isFinal ? " final-body" : "") + (cdef.third ? " third-body" : ""),
+    });
     const matches = stageMatches(stage.key);
     for (let k = 0; k < stage.count; k++) {
-      body.appendChild(renderBracketMatch(matches[k], isFinal));
+      const label = stage.count > 1 ? `${stage.title} · ${k + 1}` : stage.title;
+      body.appendChild(bracketSlot(matches[k], label, isFinal, cdef.third));
     }
-    // The third-place match is tucked beneath the final, between the semis.
-    if (isFinal) {
-      const tp = renderBracketMatch(stageMatches("THIRD_PLACE")[0], false);
-      tp.classList.add("third-place");
-      tp.prepend(el("div", { class: "third-label", text: "Third place" }));
-      body.appendChild(tp);
-    }
-    const col = el("div", { class: "round-col" }, [
-      el("div", { class: "round-title", text: stage.title }),
-      body,
-    ]);
-    // Each round is pushed right by an equal share of the leftover width, so
+    const col = el("div", { class: "round-col" }, body);
+    // Each column is pushed right by an equal share of the leftover width, so
     // the final lands flush against the right edge.
     col.style.left = `calc((100% - var(--box)) * ${i} / ${last})`;
     tree.appendChild(col);
   });
 
   root.appendChild(tree);
+}
+
+function bracketSlot(m, label, isFinal, isThird) {
+  const box = renderBracketMatch(m, isFinal);
+  if (isThird) box.classList.add("third-place");
+  return el("div", { class: "bracket-slot" }, [
+    el("div", { class: "game-label", text: label }),
+    box,
+  ]);
 }
 
 function renderBracketMatch(m, isFinal) {

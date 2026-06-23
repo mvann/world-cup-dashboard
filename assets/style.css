@@ -195,9 +195,9 @@ tbody tr.qualify td:first-child { box-shadow: inset 3px 0 0 var(--accent-2); }
 .bracket { padding-bottom: 16px; }
 .bracket-tree {
   position: relative;
-  --box: 210px;
-  --pitch: 172px;
-  max-width: 1040px;
+  --box: 200px;
+  --pitch: 196px;
+  max-width: 1120px;
   height: calc(var(--rows, 16) * var(--pitch));
   margin: 0 auto;
 }
@@ -207,20 +207,9 @@ tbody tr.qualify td:first-child { box-shadow: inset 3px 0 0 var(--accent-2); }
   bottom: 0;
   width: var(--box);
 }
-.round-title {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.7px;
-  color: var(--muted);
-}
 .round-body {
   position: absolute;
-  top: 26px;
+  top: 0;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -228,7 +217,29 @@ tbody tr.qualify td:first-child { box-shadow: inset 3px 0 0 var(--accent-2); }
   flex-direction: column;
   justify-content: space-around;
 }
-.round-body.final-body { justify-content: center; gap: 18px; }
+.round-body.final-body { justify-content: center; }
+/* Third place gets its own lane between the semis and the final; nudge it
+   below centre so it never overlaps the (centred) final box beside it. */
+.round-body.third-body { display: block; }
+.round-body.third-body .bracket-slot {
+  position: absolute;
+  top: 56%;
+  left: 0;
+  width: 100%;
+}
+.bracket-slot { display: flex; flex-direction: column; }
+.game-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .bracket-match {
   background: var(--card);
   border: 1px solid var(--line);
@@ -236,15 +247,6 @@ tbody tr.qualify td:first-child { box-shadow: inset 3px 0 0 var(--accent-2); }
   overflow: hidden;
 }
 .bracket-match.third-place { border-style: dashed; opacity: 0.95; }
-.third-label {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--muted);
-  text-align: center;
-  padding: 4px;
-  border-bottom: 1px solid var(--line);
-}
 .bracket-match.final { border-color: var(--gold); box-shadow: 0 0 0 1px rgba(251,191,36,0.25); }
 .bracket-team {
   display: flex;
@@ -296,8 +298,9 @@ tbody tr.qualify td:first-child { box-shadow: inset 3px 0 0 var(--accent-2); }
 
   /* Same fit-to-width tree, just a narrower box and tighter rows so it reads
      well on a phone in portrait. */
-  .bracket-tree { --box: 44vw; --pitch: 150px; }
+  .bracket-tree { --box: 44vw; --pitch: 178px; }
   .bracket-team { font-size: 12px; padding: 7px 8px; gap: 6px; }
   .bracket-team .crest { width: 16px; height: 16px; }
+  .game-label { font-size: 9px; }
   .champion-card { padding: 14px 16px; }
 }
