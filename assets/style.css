@@ -187,34 +187,63 @@ tbody tr.qualify td:first-child { box-shadow: inset 3px 0 0 var(--accent-2); }
 .match-row.is-live { border-color: rgba(239,68,68,0.5); }
 
 /* ---------- Bracket ---------- */
-.bracket {
-  display: flex;
-  gap: 28px;
-  overflow-x: auto;
-  padding-bottom: 16px;
+/* The whole tree fits the viewport WIDTH: every game box is the same width
+   (--box) and each round is pushed right by an equal share of the leftover
+   space, so the final sits flush against the right edge. Rounds are the same
+   height and use space-around, so each match centres vertically between the
+   two that feed it. You scroll down, never sideways. */
+.bracket { padding-bottom: 16px; }
+.bracket-tree {
+  position: relative;
+  --box: 210px;
+  --pitch: 172px;
+  max-width: 1040px;
+  height: calc(var(--rows, 16) * var(--pitch));
+  margin: 0 auto;
 }
 .round-col {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  gap: 16px;
-  min-width: 220px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--box);
 }
 .round-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   text-align: center;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.7px;
   color: var(--muted);
-  margin-bottom: 4px;
-  position: sticky;
-  top: 0;
 }
+.round-body {
+  position: absolute;
+  top: 26px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.round-body.final-body { justify-content: center; gap: 18px; }
 .bracket-match {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 10px;
   overflow: hidden;
+}
+.bracket-match.third-place { border-style: dashed; opacity: 0.95; }
+.third-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--muted);
+  text-align: center;
+  padding: 4px;
+  border-bottom: 1px solid var(--line);
 }
 .bracket-match.final { border-color: var(--gold); box-shadow: 0 0 0 1px rgba(251,191,36,0.25); }
 .bracket-team {
@@ -232,7 +261,8 @@ tbody tr.qualify td:first-child { box-shadow: inset 3px 0 0 var(--accent-2); }
 .bracket-team.winner .name { font-weight: 700; }
 .bracket-team.winner .sc { color: var(--text); }
 .champion-card {
-  align-self: center;
+  max-width: 320px;
+  margin: 0 auto 22px;
   text-align: center;
   background: linear-gradient(160deg, #2a2410, var(--card));
   border: 1px solid var(--gold);
@@ -264,24 +294,10 @@ tbody tr.qualify td:first-child { box-shadow: inset 3px 0 0 var(--accent-2); }
   .match-meta { display: none; }
   .match-team .name { font-size: 13px; }
 
-  /* Stack the bracket vertically so it fits a phone in portrait instead of
-     scrolling sideways: each round becomes a full-width section. */
-  .bracket {
-    flex-direction: column;
-    gap: 18px;
-    overflow-x: visible;
-  }
-  .round-col {
-    min-width: 0;
-    width: 100%;
-    justify-content: flex-start;
-    gap: 10px;
-  }
-  .round-title {
-    position: static;
-    text-align: left;
-    padding-bottom: 6px;
-    border-bottom: 1px solid var(--line);
-  }
-  .champion-card { align-self: stretch; }
+  /* Same fit-to-width tree, just a narrower box and tighter rows so it reads
+     well on a phone in portrait. */
+  .bracket-tree { --box: 44vw; --pitch: 150px; }
+  .bracket-team { font-size: 12px; padding: 7px 8px; gap: 6px; }
+  .bracket-team .crest { width: 16px; height: 16px; }
+  .champion-card { padding: 14px 16px; }
 }
