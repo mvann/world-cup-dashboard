@@ -39,18 +39,25 @@ def api_get(path: str, token: str) -> dict:
         return json.loads(resp.read().decode("utf-8"))
 
 
+def _group_suffix(code: str) -> str:
+    """Extract the part after 'Group'/'GROUP_', e.g. 'GROUP_A' or 'Group A' -> 'A'."""
+    c = code.strip()
+    if c.lower().startswith("group"):
+        c = c[len("group"):]
+    return c.strip(" _").replace("_", " ").title()
+
+
 def group_label(code: str | None) -> str | None:
-    """GROUP_A -> 'Group A'."""
+    """Normalise either 'GROUP_A' or 'Group A' to 'Group A'."""
     if not code:
         return None
-    parts = code.replace("GROUP_", "").split("_")
-    return "Group " + " ".join(parts).title()
+    return f"Group {_group_suffix(code)}".strip()
 
 
 def group_short(code: str | None) -> str | None:
     if not code:
         return None
-    return code.replace("GROUP_", "").replace("_", " ").title()
+    return _group_suffix(code)
 
 
 def team_obj(team: dict | None) -> dict:
