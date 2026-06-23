@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>World Cup 2026 Dashboard</title>
+  <meta name="description" content="Live FIFA World Cup 2026 group standings, schedule and knockout bracket." />
+  <link rel="preconnect" href="https://crests.football-data.org" />
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="title-wrap">
+      <span class="ball" aria-hidden="true">⚽</span>
+      <div>
+        <h1 id="comp-title">World Cup 2026</h1>
+        <p class="subtitle">Group standings · Schedule · Bracket</p>
+      </div>
+    </div>
+    <div class="status">
+      <span id="live-dot" class="dot" aria-hidden="true"></span>
+      <span id="updated-label">Loading…</span>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Dashboard sections">
+    <button class="tab active" role="tab" data-tab="standings" aria-selected="true">Groups</button>
+    <button class="tab" role="tab" data-tab="schedule" aria-selected="false">Calendar</button>
+    <button class="tab" role="tab" data-tab="bracket" aria-selected="false">Bracket</button>
+  </nav>
+
+  <main>
+    <section id="tab-standings" class="tab-panel active" role="tabpanel">
+      <div id="standings" class="groups-grid"></div>
+    </section>
+
+    <section id="tab-schedule" class="tab-panel" role="tabpanel">
+      <div class="schedule-controls">
+        <div class="filter-chips" id="schedule-filters"></div>
+      </div>
+      <div id="schedule" class="schedule"></div>
+    </section>
+
+    <section id="tab-bracket" class="tab-panel" role="tabpanel">
+      <div id="bracket" class="bracket"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span id="footer-note"></span>
+    <span class="sep">·</span>
+    <span>Data: <a href="https://www.football-data.org/" rel="noopener" target="_blank">football-data.org</a></span>
+  </footer>
+
+  <script src="./assets/app.js"></script>
+</body>
+</html>
