@@ -2,8 +2,8 @@
   "groups": [
     {
       "code": "Group A",
-      "name": "Group Group A",
-      "short": "Group A",
+      "name": "Group A",
+      "short": "A",
       "standings": [
         {
           "position": 1,
@@ -69,8 +69,8 @@
     },
     {
       "code": "Group B",
-      "name": "Group Group B",
-      "short": "Group B",
+      "name": "Group B",
+      "short": "B",
       "standings": [
         {
           "position": 1,
@@ -136,8 +136,8 @@
     },
     {
       "code": "Group C",
-      "name": "Group Group C",
-      "short": "Group C",
+      "name": "Group C",
+      "short": "C",
       "standings": [
         {
           "position": 1,
@@ -203,8 +203,8 @@
     },
     {
       "code": "Group D",
-      "name": "Group Group D",
-      "short": "Group D",
+      "name": "Group D",
+      "short": "D",
       "standings": [
         {
           "position": 1,
@@ -270,8 +270,8 @@
     },
     {
       "code": "Group E",
-      "name": "Group Group E",
-      "short": "Group E",
+      "name": "Group E",
+      "short": "E",
       "standings": [
         {
           "position": 1,
@@ -337,8 +337,8 @@
     },
     {
       "code": "Group F",
-      "name": "Group Group F",
-      "short": "Group F",
+      "name": "Group F",
+      "short": "F",
       "standings": [
         {
           "position": 1,
@@ -404,8 +404,8 @@
     },
     {
       "code": "Group G",
-      "name": "Group Group G",
-      "short": "Group G",
+      "name": "Group G",
+      "short": "G",
       "standings": [
         {
           "position": 1,
@@ -471,8 +471,8 @@
     },
     {
       "code": "Group H",
-      "name": "Group Group H",
-      "short": "Group H",
+      "name": "Group H",
+      "short": "H",
       "standings": [
         {
           "position": 1,
@@ -538,8 +538,8 @@
     },
     {
       "code": "Group I",
-      "name": "Group Group I",
-      "short": "Group I",
+      "name": "Group I",
+      "short": "I",
       "standings": [
         {
           "position": 1,
@@ -605,8 +605,8 @@
     },
     {
       "code": "Group J",
-      "name": "Group Group J",
-      "short": "Group J",
+      "name": "Group J",
+      "short": "J",
       "standings": [
         {
           "position": 1,
@@ -672,8 +672,8 @@
     },
     {
       "code": "Group K",
-      "name": "Group Group K",
-      "short": "Group K",
+      "name": "Group K",
+      "short": "K",
       "standings": [
         {
           "position": 1,
@@ -739,8 +739,8 @@
     },
     {
       "code": "Group L",
-      "name": "Group Group L",
-      "short": "Group L",
+      "name": "Group L",
+      "short": "L",
       "standings": [
         {
           "position": 1,
