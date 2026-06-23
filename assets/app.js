@@ -334,7 +334,7 @@ function renderMeta() {
   const footer = document.getElementById("footer-note");
   footer.textContent = meta.updated
     ? `Last refresh: ${new Date(meta.updated).toLocaleString()}`
-    : "Auto-updates every 10 minutes.";
+    : "Auto-updates every 20 minutes.";
 }
 
 function relativeTime(iso) {

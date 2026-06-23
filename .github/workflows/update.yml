@@ -2,9 +2,9 @@ name: Update & Deploy Dashboard
 
 on:
   schedule:
-    # Every 10 minutes. Note: GitHub only runs scheduled workflows from the
+    # Every 20 minutes. Note: GitHub only runs scheduled workflows from the
     # repository's DEFAULT branch.
-    - cron: "*/10 * * * *"
+    - cron: "*/20 * * * *"
   workflow_dispatch: {}
   push:
     # Any human push to main redeploys. The cron job's own data commits are
