@@ -428,7 +428,7 @@ main { flex: 1 0 auto; background: var(--paper); padding: 36px var(--pad) 60px; 
 }
 /* Transparent box with a single rule on its left edge. */
 .bracket-match {
-  border-left: 2px solid var(--ink);
+  border-left: 1px solid var(--ink);
   padding-left: 0.5em;
 }
 .bracket-team {
