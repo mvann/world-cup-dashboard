@@ -136,7 +136,7 @@ def write_json(path: Path, data: dict) -> None:
         f.write("\n")
 
 
-def write_meta(ok: bool, note: str, competition: str = "FIFA World Cup", season: str = "2026") -> None:
+def write_meta(ok: bool, note: str, competition: str = "World Cup", season: str = "2026") -> None:
     write_json(DATA_DIR / "meta.json", {
         "updated": now_iso(),
         "competition": competition,
@@ -175,6 +175,8 @@ def main() -> int:
         return 0
 
     comp = (matches_raw.get("competition") or {})
+    # Drop "FIFA" so the name never appears anywhere on the site.
+    comp_name = (comp.get("name") or "World Cup").replace("FIFA", "").strip() or "World Cup"
     season = (matches_raw.get("filters") or {}).get("season") or "2026"
 
     standings = transform_standings(standings_raw)
@@ -185,7 +187,7 @@ def main() -> int:
     write_meta(
         True,
         f"{len(standings['groups'])} groups, {len(matches['matches'])} matches",
-        competition=comp.get("name") or "FIFA World Cup",
+        competition=comp_name,
         season=str(season),
     )
     print(f"Wrote {len(standings['groups'])} groups and {len(matches['matches'])} matches.")

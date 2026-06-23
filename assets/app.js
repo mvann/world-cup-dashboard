@@ -104,10 +104,14 @@ function renderStandings() {
     return;
   }
   for (const g of groups) {
-    const table = el("table");
+    const letter = g.short || (g.name || "").replace(/^group\s*/i, "") || g.code || "";
+    const table = el("table", { class: "standings-table" });
     const thead = el("tr", {}, [
-      el("th", { class: "pos", text: "#" }),
-      el("th", { class: "team-cell", text: "Team" }),
+      el("th", { class: "pos", text: "" }),
+      el("th", { class: "group-th" }, [
+        el("span", { class: "group-letter", text: letter }),
+        el("span", { class: "group-tag", text: "Group" }),
+      ]),
       el("th", { text: "P" }),
       el("th", { text: "W" }),
       el("th", { text: "D" }),
@@ -131,7 +135,7 @@ function renderStandings() {
     });
     table.appendChild(el("thead", {}, thead));
     table.appendChild(tbody);
-    root.appendChild(el("div", { class: "group-card" }, [el("h3", { text: g.name || g.code }), table]));
+    root.appendChild(el("div", { class: "group" }, [table]));
   }
   root.appendChild(el("div", { class: "legend" }, [
     el("span", { class: "swatch" }), "Top two of each group advance to the knockout stage.",
@@ -349,8 +353,10 @@ function bracketTeamRow(team, score, isWinner) {
 function renderMeta() {
   const meta = state.meta || {};
   if (meta.competition) {
+    // Drop "FIFA" everywhere; the masthead title-cases what's left.
+    const name = meta.competition.replace(/\bFIFA\b/gi, "").replace(/\s+/g, " ").trim() || "World Cup";
     document.getElementById("comp-title").textContent =
-      meta.competition + (meta.season ? ` ${meta.season}` : "");
+      name + (meta.season ? ` ${meta.season}` : "");
   }
 
   const dot = document.getElementById("live-dot");

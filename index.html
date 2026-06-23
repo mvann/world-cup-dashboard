@@ -4,24 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>World Cup 2026 Dashboard</title>
-  <meta name="description" content="Live FIFA World Cup 2026 group standings, schedule and knockout bracket." />
-  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Live World Cup 2026 group standings, schedule and knockout bracket." />
+  <meta name="theme-color" content="#F19F1D" />
   <meta name="color-scheme" content="light" />
   <link rel="preconnect" href="https://crests.football-data.org" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
   <link rel="stylesheet" href="./assets/style.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="title-wrap">
-      <span class="ball" aria-hidden="true">⚽</span>
-      <div>
-        <h1 id="comp-title">World Cup 2026</h1>
-        <p class="subtitle">Group standings · Schedule · Bracket</p>
-      </div>
-    </div>
-    <div class="status">
-      <span id="live-dot" class="dot" aria-hidden="true"></span>
-      <span id="updated-label">Loading…</span>
+      <h1 id="comp-title">World Cup 2026</h1>
     </div>
   </header>
 
@@ -29,6 +24,10 @@
     <button class="tab active" role="tab" data-tab="standings" aria-selected="true">Groups</button>
     <button class="tab" role="tab" data-tab="schedule" aria-selected="false">Calendar</button>
     <button class="tab" role="tab" data-tab="bracket" aria-selected="false">Bracket</button>
+    <div class="status">
+      <span id="live-dot" class="dot" aria-hidden="true"></span>
+      <span id="updated-label">Loading…</span>
+    </div>
   </nav>
 
   <main>
