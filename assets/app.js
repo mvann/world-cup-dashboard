@@ -89,7 +89,69 @@ function fmtTime(d) {
   return d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
 }
 
+// Stable per-team key for the #team/<key> route (TLA when available, else name).
+function keyOfTeam(team) {
+  if (!team || !team.name || team.name === "TBD") return null;
+  return team.tla || team.name;
+}
+function teamMatchesKey(team, key) {
+  return !!team && (team.tla === key || team.name === key);
+}
+
+// Wrap a team's crest+name in a link to its page (or a plain span when unknown).
+function teamLinkEl(key, children, cls) {
+  const className = "team-link" + (cls ? " " + cls : "");
+  if (!key) return el("span", { class: className }, children);
+  return el("a", { class: className, href: "#team/" + encodeURIComponent(key) }, children);
+}
+
+function ordinal(n) {
+  const s = ["th", "st", "nd", "rd"], v = n % 100;
+  return n + (s[(v - 20) % 10] || s[v] || s[0]);
+}
+
 /* ---------------- standings ---------------- */
+
+// One group's table. currentKey (optional) highlights that team's row — used by
+// the team page to show the team in the context of its group.
+function groupTableEl(g, currentKey) {
+  const letter = g.short || (g.name || "").replace(/^group\s*/i, "") || g.code || "";
+  const table = el("table", { class: "standings-table" });
+  const thead = el("tr", {}, [
+    el("th", { class: "pos", text: "" }),
+    el("th", { class: "group-th" }, [
+      el("span", { class: "group-letter", text: letter }),
+      el("span", { class: "group-tag", text: "Group" }),
+    ]),
+    el("th", { text: "P" }),
+    el("th", { text: "W" }),
+    el("th", { text: "D" }),
+    el("th", { text: "L" }),
+    el("th", { text: "GD" }),
+    el("th", { text: "Pts" }),
+  ]);
+  const tbody = el("tbody");
+  (g.standings || []).forEach((row, i) => {
+    const isCurrent = currentKey && (row.tla === currentKey || row.team === currentKey);
+    const cls = (i < 2 ? "qualify" : "") + (isCurrent ? " current" : "");
+    const tr = el("tr", { class: cls.trim() || null }, [
+      el("td", { class: "pos", text: String(row.position ?? i + 1) }),
+      el("td", { class: "team-cell" }, [
+        teamLinkEl(row.tla || row.team, [crestImg(row), el("span", { class: "name", text: row.team })]),
+      ]),
+      el("td", { text: String(row.playedGames) }),
+      el("td", { text: String(row.won) }),
+      el("td", { text: String(row.draw) }),
+      el("td", { text: String(row.lost) }),
+      el("td", { text: (row.goalDifference > 0 ? "+" : "") + row.goalDifference }),
+      el("td", { class: "pts", text: String(row.points) }),
+    ]);
+    tbody.appendChild(tr);
+  });
+  table.appendChild(el("thead", {}, thead));
+  table.appendChild(tbody);
+  return el("div", { class: "group" }, [table]);
+}
 
 function renderStandings() {
   const root = document.getElementById("standings");
@@ -99,40 +161,7 @@ function renderStandings() {
     root.appendChild(el("div", { class: "empty", text: "Group standings will appear here once the tournament data is available." }));
     return;
   }
-  for (const g of groups) {
-    const letter = g.short || (g.name || "").replace(/^group\s*/i, "") || g.code || "";
-    const table = el("table", { class: "standings-table" });
-    const thead = el("tr", {}, [
-      el("th", { class: "pos", text: "" }),
-      el("th", { class: "group-th" }, [
-        el("span", { class: "group-letter", text: letter }),
-        el("span", { class: "group-tag", text: "Group" }),
-      ]),
-      el("th", { text: "P" }),
-      el("th", { text: "W" }),
-      el("th", { text: "D" }),
-      el("th", { text: "L" }),
-      el("th", { text: "GD" }),
-      el("th", { text: "Pts" }),
-    ]);
-    const tbody = el("tbody");
-    (g.standings || []).forEach((row, i) => {
-      const tr = el("tr", { class: i < 2 ? "qualify" : "" }, [
-        el("td", { class: "pos", text: String(row.position ?? i + 1) }),
-        el("td", { class: "team-cell" }, [crestImg(row), el("span", { class: "name", text: row.team })]),
-        el("td", { text: String(row.playedGames) }),
-        el("td", { text: String(row.won) }),
-        el("td", { text: String(row.draw) }),
-        el("td", { text: String(row.lost) }),
-        el("td", { text: (row.goalDifference > 0 ? "+" : "") + row.goalDifference }),
-        el("td", { class: "pts", text: String(row.points) }),
-      ]);
-      tbody.appendChild(tr);
-    });
-    table.appendChild(el("thead", {}, thead));
-    table.appendChild(tbody);
-    root.appendChild(el("div", { class: "group" }, [table]));
-  }
+  for (const g of groups) root.appendChild(groupTableEl(g, null));
   root.appendChild(el("div", { class: "legend" }, [
     el("span", { class: "swatch" }), "Top two of each group advance to the knockout stage.",
   ]));
@@ -156,10 +185,7 @@ function renderScheduleFilters() {
       text: f.label,
     });
     chip.addEventListener("click", () => {
-      state.scheduleFilter = f.key;
-      lsSet(LS_FILTER, f.key);
-      renderScheduleFilters();
-      renderSchedule();
+      location.hash = "#schedule/" + f.key;   // linkable filter (#schedule/live, …)
     });
     root.appendChild(chip);
   }
@@ -179,6 +205,25 @@ function matchPassesFilter(m, now) {
   }
 }
 
+// A chronological match list grouped by calendar day. Shared by the Calendar tab
+// and a team's fixtures/results on its page.
+function matchListEl(matches) {
+  const frag = document.createDocumentFragment();
+  const byDay = new Map();
+  for (const m of matches) {
+    const key = m.utcDate ? new Date(m.utcDate).toDateString() : "TBD";
+    if (!byDay.has(key)) byDay.set(key, []);
+    byDay.get(key).push(m);
+  }
+  for (const [dayKey, dayMatches] of byDay) {
+    const heading = dayKey === "TBD" ? "Date to be confirmed" : fmtDay(new Date(dayKey));
+    const dayEl = el("div", { class: "day-group" }, [el("h3", { class: "day-heading", text: heading })]);
+    for (const m of dayMatches) dayEl.appendChild(renderMatchRow(m));
+    frag.appendChild(dayEl);
+  }
+  return frag;
+}
+
 function renderSchedule() {
   const root = document.getElementById("schedule");
   root.innerHTML = "";
@@ -189,23 +234,7 @@ function renderSchedule() {
     root.appendChild(el("div", { class: "empty", text: "No matches to show for this filter yet." }));
     return;
   }
-
-  // group by calendar day
-  const byDay = new Map();
-  for (const m of matches) {
-    const key = m.utcDate ? new Date(m.utcDate).toDateString() : "TBD";
-    if (!byDay.has(key)) byDay.set(key, []);
-    byDay.get(key).push(m);
-  }
-
-  for (const [dayKey, dayMatches] of byDay) {
-    const heading = dayKey === "TBD" ? "Date to be confirmed" : fmtDay(new Date(dayKey));
-    const dayEl = el("div", { class: "day-group" }, [el("h3", { class: "day-heading", text: heading })]);
-    for (const m of dayMatches) {
-      dayEl.appendChild(renderMatchRow(m));
-    }
-    root.appendChild(dayEl);
-  }
+  root.appendChild(matchListEl(matches));
 }
 
 function renderMatchRow(m) {
@@ -230,13 +259,13 @@ function renderMatchRow(m) {
 
   return el("div", { class: "match-row" + (live ? " is-live" : "") }, [
     el("div", { class: "match-time" }, timeContent),
-    el("div", { class: "match-team home" + (homeWin ? " win" : "") }, [
-      el("span", { class: "name", text: m.home.name }), crestImg(m.home),
-    ]),
+    teamLinkEl(keyOfTeam(m.home),
+      [el("span", { class: "name", text: m.home.name }), crestImg(m.home)],
+      "match-team home" + (homeWin ? " win" : "")),
     scoreEl,
-    el("div", { class: "match-team away" + (awayWin ? " win" : "") }, [
-      crestImg(m.away), el("span", { class: "name", text: m.away.name }),
-    ]),
+    teamLinkEl(keyOfTeam(m.away),
+      [crestImg(m.away), el("span", { class: "name", text: m.away.name })],
+      "match-team away" + (awayWin ? " win" : "")),
     el("div", { class: "match-meta", text: stageLabel }),
   ]);
 }
@@ -310,17 +339,122 @@ function renderBracketMatch(m, isFinal) {
 }
 
 function bracketTeamRow(team, score, isWinner) {
-  if (!team || !team.name || team.name === "TBD") {
-    return el("div", { class: "bracket-team tbd" }, [
+  const key = keyOfTeam(team);
+  if (!key) {
+    return el("span", { class: "team-link bracket-team tbd" }, [
       el("span", { class: "crest", "aria-hidden": "true" }),
       el("span", { class: "name", text: "TBD" }),
     ]);
   }
-  return el("div", { class: "bracket-team" + (isWinner ? " winner" : "") }, [
+  return teamLinkEl(key, [
     crestImg(team),
     el("span", { class: "name", text: team.name }),
     el("span", { class: "sc", text: score == null ? "" : String(score) }),
-  ]);
+  ], "bracket-team" + (isWinner ? " winner" : ""));
+}
+
+/* ---------------- team page ---------------- */
+
+function teamHashKey() {
+  const m = location.hash.match(/^#team\/(.+)$/);
+  return m ? decodeURIComponent(m[1]) : null;
+}
+
+function renderTeamView(key) {
+  const root = document.getElementById("team-view");
+  root.innerHTML = "";
+
+  const back = el("a", { class: "team-back", href: "#", text: "← Back" });
+  back.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (history.length > 1) history.back();
+    else location.hash = "";
+  });
+  root.appendChild(back);
+
+  // The team in the context of its group (if the group table is loaded).
+  let found = null;
+  for (const g of (state.standings.groups || [])) {
+    const row = (g.standings || []).find((r) => r.tla === key || r.team === key);
+    if (row) { found = { row, group: g }; break; }
+  }
+
+  // Every match the team appears in, chronological.
+  const teamMatches = (state.matches.matches || [])
+    .filter((m) => teamMatchesKey(m.home, key) || teamMatchesKey(m.away, key))
+    .sort((a, b) => (a.utcDate || "").localeCompare(b.utcDate || "") || (a.id || 0) - (b.id || 0));
+
+  if (!found && !teamMatches.length) {
+    root.appendChild(el("div", { class: "empty", text: "No data for this team yet." }));
+    return;
+  }
+
+  // Resolve display name + crest from standings, falling back to a match entry.
+  let name = key, crest = null;
+  if (found) {
+    name = found.row.team; crest = found.row.crest;
+  } else {
+    const m0 = teamMatches[0];
+    const t = teamMatchesKey(m0.home, key) ? m0.home : m0.away;
+    name = t.name; crest = t.crest;
+  }
+
+  const metaBits = [];
+  if (found) {
+    metaBits.push(found.group.name || ("Group " + (found.group.short || "")));
+    if (found.row.position != null) metaBits.push(ordinal(found.row.position) + " place");
+    metaBits.push(found.row.points + " pts");
+  }
+  root.appendChild(el("div", { class: "team-head" }, [
+    crestImg({ crest }),
+    el("div", { class: "team-head-text" }, [
+      el("h2", { class: "team-name", text: name }),
+      metaBits.length ? el("div", { class: "team-meta", text: metaBits.join(" · ") }) : null,
+    ]),
+  ]));
+
+  if (found) {
+    root.appendChild(el("h3", { class: "section-title", text: "Group" }));
+    root.appendChild(groupTableEl(found.group, key));
+  }
+
+  root.appendChild(el("h3", { class: "section-title", text: "Matches" }));
+  root.appendChild(teamMatches.length
+    ? matchListEl(teamMatches)
+    : el("div", { class: "empty", text: "No matches scheduled yet." }));
+}
+
+// Hash drives every view: #team/<key> for a team page, #standings/#schedule/
+// #bracket for a tab, empty for the last-used (or default) tab.
+function route() {
+  const teamKey = teamHashKey();
+  if (teamKey) {
+    document.body.classList.add("viewing-team");
+    // No tab is "current" while on a team page.
+    document.querySelectorAll(".tab").forEach((t) => {
+      t.classList.remove("active");
+      t.setAttribute("aria-selected", "false");
+    });
+    renderTeamView(teamKey);
+    window.scrollTo(0, 0);
+    return;
+  }
+  document.body.classList.remove("viewing-team");
+
+  const [seg, sub] = location.hash.replace(/^#/, "").split("/");
+  const name = ["standings", "schedule", "bracket"].includes(seg)
+    ? seg
+    : (lsGet(LS_TAB) || "standings");
+
+  // The Calendar filter lives in the URL too (#schedule/live, #schedule/finished…).
+  if (name === "schedule") {
+    const filters = ["all", "live", "today", "upcoming", "finished"];
+    state.scheduleFilter = filters.includes(sub) ? sub : (lsGet(LS_FILTER) || "all");
+    lsSet(LS_FILTER, state.scheduleFilter);
+    renderScheduleFilters();
+    renderSchedule();
+  }
+  activateTab(name);
 }
 
 /* ---------------- header / meta ---------------- */
@@ -378,6 +512,9 @@ function renderAll() {
   renderScheduleFilters();
   renderSchedule();
   renderBracket();
+  // Keep an open team page in sync with freshly loaded data.
+  const key = teamHashKey();
+  if (key) renderTeamView(key);
 }
 
 function activateTab(name) {
@@ -396,14 +533,14 @@ function activateTab(name) {
 function initTabs() {
   document.querySelectorAll(".tab").forEach((tab) => {
     tab.addEventListener("click", () => {
-      activateTab(tab.dataset.tab);
       lsSet(LS_TAB, tab.dataset.tab);
+      location.hash = "#" + tab.dataset.tab;   // navigate via the hash so it's linkable
     });
   });
-  // Restore the tab the user was last on.
-  activateTab(lsGet(LS_TAB) || "standings");
 }
 
 initTabs();
+window.addEventListener("hashchange", route);
+route();
 refresh();
 setInterval(refresh, REFRESH_MS);

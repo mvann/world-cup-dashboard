@@ -222,7 +222,8 @@ main { flex: 1 0 auto; padding: 36px var(--pad) 60px; }
 .standings-table td.team-cell { text-align: left; }
 .standings-table td.pts { font-weight: 800; }
 
-.team-cell { display: flex; align-items: center; gap: 10px; }
+.team-cell { min-width: 0; }
+.team-cell .team-link { display: flex; align-items: center; gap: 10px; min-width: 0; width: 100%; }
 .team-cell .name { flex: 1 1 auto; min-width: 0; }   /* allow ellipsis in flex */
 .crest { width: 20px; height: 20px; object-fit: contain; flex: none; }
 .name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -344,7 +345,6 @@ main { flex: 1 0 auto; padding: 36px var(--pad) 60px; }
   min-width: 0;
 }
 .bracket-slot { display: flex; flex-direction: column; min-width: 0; }
-/* Left rule runs down the label as well as the box. */
 .game-label {
   font-size: 0.78em;
   font-weight: 500;
@@ -355,14 +355,11 @@ main { flex: 1 0 auto; padding: 36px var(--pad) 60px; }
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  border-left: 2px solid var(--ink);
-  padding-left: 0.5em;
 }
-/* Transparent box with a rule on both the left and right edges. */
+/* Transparent box with a single rule on its left edge. */
 .bracket-match {
   border-left: 2px solid var(--ink);
-  border-right: 2px solid var(--ink);
-  padding: 0 0.5em;
+  padding-left: 0.5em;
 }
 .bracket-team {
   display: flex;
@@ -410,6 +407,70 @@ main { flex: 1 0 auto; padding: 36px var(--pad) 60px; }
 .site-footer a { color: var(--ink); box-shadow: none; }
 .site-footer a:hover { background: transparent; text-decoration: underline; }
 .sep { margin: 0 10px; color: var(--ink); }
+
+/* ---------- Team page ----------
+   Composed from the same components as the rest of the site: the team's group
+   table (.standings-table) and its fixtures (.match-row). */
+#team-view { display: none; }
+body.viewing-team .tab-panel { display: none; }
+body.viewing-team #team-view { display: block; }
+
+/* Team names are links everywhere — plain text until hovered. */
+.team-link { color: inherit; box-shadow: none; }
+a.team-link { cursor: pointer; }
+a.team-link:hover { background: transparent; }
+/* Underline only the glyphs, not the full-width flex cell. */
+a.team-link:hover .name {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.team-back {
+  display: inline-block;
+  margin-bottom: 30px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  box-shadow: none;
+}
+.team-back:hover { color: var(--ink); background: transparent; }
+
+.team-head { display: flex; align-items: center; gap: 18px; margin-bottom: 40px; }
+.team-head .crest { width: 54px; height: 54px; }
+.team-name {
+  margin: 0;
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.team-meta {
+  margin-top: 9px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+}
+
+.section-title {
+  margin: 0 0 14px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--ink);
+}
+#team-view .group { margin-bottom: 40px; max-width: 440px; }
+
+/* Highlight the team's own row within its group table. */
+.standings-table tr.current td.team-cell { box-shadow: inset 3px 0 0 var(--accent); }
+.standings-table tr.current .name { font-weight: 800; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 820px) {
