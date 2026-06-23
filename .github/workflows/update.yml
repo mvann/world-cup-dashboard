@@ -28,9 +28,13 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      deploy: ${{ steps.commit.outputs.deploy }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -43,24 +47,45 @@ jobs:
         run: python scripts/fetch_data.py
 
       - name: Commit refreshed data
+        id: commit
         run: |
           git config user.name "wc-dashboard-bot"
           git config user.email "actions@github.com"
           git add data/
+          # meta.json's timestamp changes every run, so decide whether to redeploy
+          # based on the real data (standings + matches) only.
+          if git diff --cached --quiet -- data/standings.json data/matches.json; then
+            data_changed=0
+          else
+            data_changed=1
+          fi
           if git diff --cached --quiet; then
-            echo "No data changes to commit."
+            echo "Nothing to commit."
           else
             git commit -m "chore: update World Cup data [skip ci]"
+            # Rebase onto anything that landed mid-run (e.g. a human push) so the
+            # push can't fail on a non-fast-forward.
+            git pull --rebase --autostash origin main
             git push
+          fi
+          # Deploy when the real data changed, or when a human push / manual run
+          # triggered us; skip redeploying on a quiet scheduled run.
+          if [ "$data_changed" = "1" ] || [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Scheduled run with no data change — skipping deploy."
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Upload Pages artifact
+        if: ${{ steps.commit.outputs.deploy == 'true' }}
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
 
   deploy:
     needs: build
+    if: ${{ needs.build.outputs.deploy == 'true' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages

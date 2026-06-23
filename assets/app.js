@@ -60,7 +60,6 @@ function el(tag, attrs = {}, children = []) {
   for (const [k, v] of Object.entries(attrs)) {
     if (v == null) continue;
     if (k === "class") node.className = v;
-    else if (k === "html") node.innerHTML = v;
     else if (k === "text") node.textContent = v;
     else node.setAttribute(k, v);
   }
@@ -125,8 +124,18 @@ function groupRemaining(group) {
 // counted against the team, so we never over-claim. Returns a Set of team keys.
 function clinchedTeams(group) {
   const teams = (group.standings || []).map((r) => ({ key: r.tla || r.team, pts: r.points || 0 }));
+  // Map any identifier (tla or name) back to a standings key, so a remaining
+  // match still resolves even if the API gives a team a tla in one feed but not
+  // the other.
+  const idx = {};
+  for (const r of (group.standings || [])) {
+    const k = r.tla || r.team;
+    if (r.tla) idx[r.tla] = k;
+    if (r.team) idx[r.team] = k;
+  }
+  const resolve = (t) => (t && (idx[t.tla] || idx[t.name])) || null;
   const rem = groupRemaining(group)
-    .map((m) => ({ home: keyOfTeam(m.home), away: keyOfTeam(m.away) }))
+    .map((m) => ({ home: resolve(m.home), away: resolve(m.away) }))
     .filter((x) => x.home && x.away);
   const clinched = new Set(teams.map((t) => t.key));
   const combos = Math.pow(3, rem.length);
@@ -326,7 +335,11 @@ function renderMatchRow(m) {
 
   const stageLabel = m.groupName || stageTitle(m.stage) || "";
 
-  return el("div", { class: "match-row" + (live ? " is-live" : ""), "data-game": m.id }, [
+  return el("div", {
+    class: "match-row" + (live ? " is-live" : ""),
+    "data-game": m.id, role: "link", tabindex: "0",
+    "aria-label": `View match: ${m.home.name} versus ${m.away.name}`,
+  }, [
     el("div", { class: "match-time" }, timeContent),
     el("div", { class: "match-team home" + (homeWin ? " win" : "") }, [
       teamLinkEl(keyOfTeam(m.home), [el("span", { class: "name", text: m.home.name }), crestImg(m.home)]),
@@ -402,7 +415,10 @@ function renderBracketMatch(m, isFinal) {
   }
   const showScore = hasScore(m) && (isLive(m) || isFinished(m));
   const pens = penScore(m);
-  return el("div", { class: cls, "data-game": m.id }, [
+  return el("div", {
+    class: cls, "data-game": m.id, role: "link", tabindex: "0",
+    "aria-label": `View match: ${m.home.name} versus ${m.away.name}`,
+  }, [
     bracketTeamRow(m.home, showScore ? m.score.home : null, m.winner === "HOME", pens ? pens.home : null),
     bracketTeamRow(m.away, showScore ? m.score.away : null, m.winner === "AWAY", pens ? pens.away : null),
   ]);
@@ -698,6 +714,16 @@ document.addEventListener("click", (e) => {
   if (e.target.closest("a.team-link")) return;
   const g = e.target.closest("[data-game]");
   if (g) location.hash = "#game/" + encodeURIComponent(g.dataset.game);
+});
+// Keyboard activation when a game container itself is focused (its inner team
+// links handle their own Enter natively).
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Enter" && e.key !== " ") return;
+  const g = e.target;
+  if (g instanceof Element && g.matches("[data-game]")) {
+    e.preventDefault();
+    location.hash = "#game/" + encodeURIComponent(g.dataset.game);
+  }
 });
 window.addEventListener("hashchange", route);
 route();

@@ -26,8 +26,10 @@
 /* The root is yellow so overscrolling up (past the masthead) reveals yellow,
    never black or paper. The body keeps the paper reading surface. */
 /* Reserve the scrollbar gutter so switching between a tall tab (Groups) and a
-   short one (Calendar) doesn't shift the centred layout sideways. */
-html { background: var(--accent); scrollbar-gutter: stable; }
+   short one (Calendar) doesn't shift the centred layout sideways. The root is
+   the paper/bone colour so overscroll areas (top + bottom, incl. iOS Safari's
+   rubber-band) match the page instead of showing pure white. */
+html { background: var(--paper); scrollbar-gutter: stable; }
 /* Column flex + min-height pins the footer to the bottom on short pages. */
 body { background: var(--paper); min-height: 100vh; display: flex; flex-direction: column; }
 
@@ -584,6 +586,8 @@ a.team-link:hover .name {
 .match-row[data-game], .bracket-match[data-game] { cursor: pointer; }
 .match-row[data-game]:hover,
 .bracket-match[data-game]:hover { background: var(--hover); }
+.match-row[data-game]:focus-visible,
+.bracket-match[data-game]:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 820px) {
