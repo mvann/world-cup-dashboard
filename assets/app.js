@@ -1,7 +1,7 @@
 "use strict";
 
 // Auto-refresh the open page so a left-open dashboard keeps current with the
-// data the workflow commits every ~10 minutes.
+// data the workflow commits every ~20 minutes.
 const REFRESH_MS = 60 * 1000;
 
 const KNOCKOUT_STAGES = [
@@ -13,14 +13,24 @@ const KNOCKOUT_STAGES = [
   { key: "FINAL", title: "Final", count: 1 },
 ];
 
+// Rounds that form the single-elimination tree (third place is tucked under the
+// final rather than getting its own column).
+const TREE_STAGES = KNOCKOUT_STAGES.filter((s) => s.key !== "THIRD_PLACE");
+
 const LIVE_STATUSES = new Set(["IN_PLAY", "PAUSED", "LIVE"]);
 const FINISHED_STATUSES = new Set(["FINISHED", "AWARDED"]);
+
+// Persist lightweight view state across reloads.
+const LS_TAB = "wc.tab";
+const LS_FILTER = "wc.filter";
+function lsGet(k) { try { return localStorage.getItem(k); } catch { return null; } }
+function lsSet(k, v) { try { localStorage.setItem(k, v); } catch { /* ignore */ } }
 
 const state = {
   standings: { groups: [] },
   matches: { matches: [] },
   meta: {},
-  scheduleFilter: "all",
+  scheduleFilter: lsGet(LS_FILTER) || "all",
 };
 
 /* ---------------- data loading ---------------- */
@@ -147,6 +157,7 @@ function renderScheduleFilters() {
     });
     chip.addEventListener("click", () => {
       state.scheduleFilter = f.key;
+      lsSet(LS_FILTER, f.key);
       renderScheduleFilters();
       renderSchedule();
     });
@@ -247,27 +258,13 @@ function renderBracket() {
     if (!byStage.has(m.stage)) byStage.set(m.stage, []);
     byStage.get(m.stage).push(m);
   }
-
-  // Only render knockout stages that actually exist in the dataset, but always
-  // render the full skeleton (empty slots) for those stages so the bracket is
-  // visible from the start and fills in as teams are placed.
-  const presentStages = KNOCKOUT_STAGES.filter((s) => byStage.has(s.key));
-  const stagesToRender = presentStages.length ? presentStages : KNOCKOUT_STAGES;
-
-  for (const stage of stagesToRender) {
-    const col = el("div", { class: "round-col" }, [el("div", { class: "round-title", text: stage.title })]);
-    const stageMatches = (byStage.get(stage.key) || []).slice().sort(
+  const stageMatches = (key) =>
+    (byStage.get(key) || []).slice().sort(
       (a, b) => (a.utcDate || "").localeCompare(b.utcDate || "") || (a.id || 0) - (b.id || 0)
     );
-    for (let i = 0; i < stage.count; i++) {
-      col.appendChild(renderBracketMatch(stageMatches[i], stage.key === "FINAL"));
-    }
-    root.appendChild(col);
-  }
 
-  // Champion card from the final, if decided.
-  const finals = byStage.get("FINAL") || [];
-  const finalMatch = finals[0];
+  // Champion banner above the tree, once the final is decided.
+  const finalMatch = stageMatches("FINAL")[0];
   if (finalMatch && isFinished(finalMatch) && finalMatch.winner && finalMatch.winner !== "DRAW") {
     const champ = finalMatch.winner === "HOME" ? finalMatch.home : finalMatch.away;
     root.appendChild(el("div", { class: "champion-card" }, [
@@ -276,6 +273,38 @@ function renderBracket() {
       el("div", { class: "name", text: champ.name }),
     ]));
   }
+
+  // Indented tree: the full skeleton is always drawn so the bracket is visible
+  // from the start and fills in as teams are placed.
+  const tree = el("div", { class: "bracket-tree" });
+  tree.style.setProperty("--rows", String(TREE_STAGES[0].count));
+  const last = TREE_STAGES.length - 1;
+
+  TREE_STAGES.forEach((stage, i) => {
+    const isFinal = stage.key === "FINAL";
+    const body = el("div", { class: "round-body" + (isFinal ? " final-body" : "") });
+    const matches = stageMatches(stage.key);
+    for (let k = 0; k < stage.count; k++) {
+      body.appendChild(renderBracketMatch(matches[k], isFinal));
+    }
+    // The third-place match is tucked beneath the final, between the semis.
+    if (isFinal) {
+      const tp = renderBracketMatch(stageMatches("THIRD_PLACE")[0], false);
+      tp.classList.add("third-place");
+      tp.prepend(el("div", { class: "third-label", text: "Third place" }));
+      body.appendChild(tp);
+    }
+    const col = el("div", { class: "round-col" }, [
+      el("div", { class: "round-title", text: stage.title }),
+      body,
+    ]);
+    // Each round is pushed right by an equal share of the leftover width, so
+    // the final lands flush against the right edge.
+    col.style.left = `calc((100% - var(--box)) * ${i} / ${last})`;
+    tree.appendChild(col);
+  });
+
+  root.appendChild(tree);
 }
 
 function renderBracketMatch(m, isFinal) {
@@ -358,17 +387,28 @@ function renderAll() {
   renderBracket();
 }
 
+function activateTab(name) {
+  const tabs = [...document.querySelectorAll(".tab")];
+  if (!tabs.some((t) => t.dataset.tab === name)) name = "standings";
+  tabs.forEach((t) => {
+    const on = t.dataset.tab === name;
+    t.classList.toggle("active", on);
+    t.setAttribute("aria-selected", on ? "true" : "false");
+  });
+  document.querySelectorAll(".tab-panel").forEach((p) => p.classList.remove("active"));
+  const panel = document.getElementById("tab-" + name);
+  if (panel) panel.classList.add("active");
+}
+
 function initTabs() {
-  const tabs = document.querySelectorAll(".tab");
-  tabs.forEach((tab) => {
+  document.querySelectorAll(".tab").forEach((tab) => {
     tab.addEventListener("click", () => {
-      tabs.forEach((t) => { t.classList.remove("active"); t.setAttribute("aria-selected", "false"); });
-      tab.classList.add("active");
-      tab.setAttribute("aria-selected", "true");
-      document.querySelectorAll(".tab-panel").forEach((p) => p.classList.remove("active"));
-      document.getElementById("tab-" + tab.dataset.tab).classList.add("active");
+      activateTab(tab.dataset.tab);
+      lsSet(LS_TAB, tab.dataset.tab);
     });
   });
+  // Restore the tab the user was last on.
+  activateTab(lsGet(LS_TAB) || "standings");
 }
 
 initTabs();
