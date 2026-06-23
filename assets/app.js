@@ -130,9 +130,10 @@ function groupTableEl(g, currentKey) {
     el("th", { text: "GD" }),
     el("th", { text: "Pts" }),
   ]);
+  const keys = (Array.isArray(currentKey) ? currentKey : [currentKey]).filter(Boolean);
   const tbody = el("tbody");
   (g.standings || []).forEach((row, i) => {
-    const isCurrent = currentKey && (row.tla === currentKey || row.team === currentKey);
+    const isCurrent = keys.some((k) => row.tla === k || row.team === k);
     const cls = (i < 2 ? "qualify" : "") + (isCurrent ? " current" : "");
     const tr = el("tr", { class: cls.trim() || null }, [
       el("td", { class: "pos", text: String(row.position ?? i + 1) }),
@@ -257,15 +258,15 @@ function renderMatchRow(m) {
 
   const stageLabel = m.groupName || stageTitle(m.stage) || "";
 
-  return el("div", { class: "match-row" + (live ? " is-live" : "") }, [
+  return el("div", { class: "match-row" + (live ? " is-live" : ""), "data-game": m.id }, [
     el("div", { class: "match-time" }, timeContent),
-    teamLinkEl(keyOfTeam(m.home),
-      [el("span", { class: "name", text: m.home.name }), crestImg(m.home)],
-      "match-team home" + (homeWin ? " win" : "")),
+    el("div", { class: "match-team home" + (homeWin ? " win" : "") }, [
+      teamLinkEl(keyOfTeam(m.home), [el("span", { class: "name", text: m.home.name }), crestImg(m.home)]),
+    ]),
     scoreEl,
-    teamLinkEl(keyOfTeam(m.away),
-      [crestImg(m.away), el("span", { class: "name", text: m.away.name })],
-      "match-team away" + (awayWin ? " win" : "")),
+    el("div", { class: "match-team away" + (awayWin ? " win" : "") }, [
+      teamLinkEl(keyOfTeam(m.away), [crestImg(m.away), el("span", { class: "name", text: m.away.name })]),
+    ]),
     el("div", { class: "match-meta", text: stageLabel }),
   ]);
 }
@@ -332,7 +333,7 @@ function renderBracketMatch(m, isFinal) {
     return el("div", { class: cls }, [bracketTeamRow(null, null, false), bracketTeamRow(null, null, false)]);
   }
   const showScore = hasScore(m) && (isLive(m) || isFinished(m));
-  return el("div", { class: cls }, [
+  return el("div", { class: cls, "data-game": m.id }, [
     bracketTeamRow(m.home, showScore ? m.score.home : null, m.winner === "HOME"),
     bracketTeamRow(m.away, showScore ? m.score.away : null, m.winner === "AWAY"),
   ]);
@@ -340,37 +341,51 @@ function renderBracketMatch(m, isFinal) {
 
 function bracketTeamRow(team, score, isWinner) {
   const key = keyOfTeam(team);
-  if (!key) {
-    return el("span", { class: "team-link bracket-team tbd" }, [
-      el("span", { class: "crest", "aria-hidden": "true" }),
-      el("span", { class: "name", text: "TBD" }),
-    ]);
-  }
-  return teamLinkEl(key, [
-    crestImg(team),
-    el("span", { class: "name", text: team.name }),
+  const nameKids = key
+    ? [crestImg(team), el("span", { class: "name", text: team.name })]
+    : [el("span", { class: "crest", "aria-hidden": "true" }), el("span", { class: "name", text: "TBD" })];
+  return el("div", { class: "bracket-team" + (key ? "" : " tbd") + (isWinner ? " winner" : "") }, [
+    teamLinkEl(key, nameKids),
     el("span", { class: "sc", text: score == null ? "" : String(score) }),
-  ], "bracket-team" + (isWinner ? " winner" : ""));
+  ]);
 }
 
-/* ---------------- team page ---------------- */
+/* ---------------- detail pages (team / game) ---------------- */
 
-function teamHashKey() {
-  const m = location.hash.match(/^#team\/(.+)$/);
-  return m ? decodeURIComponent(m[1]) : null;
+function currentDetail() {
+  const hash = location.hash.replace(/^#/, "");
+  let m;
+  if ((m = hash.match(/^team\/(.+)$/))) return { type: "team", key: decodeURIComponent(m[1]) };
+  if ((m = hash.match(/^game\/(.+)$/))) return { type: "game", key: decodeURIComponent(m[1]) };
+  return null;
 }
 
-function renderTeamView(key) {
-  const root = document.getElementById("team-view");
-  root.innerHTML = "";
+function renderDetail(d) {
+  if (d.type === "team") renderTeamView(d.key);
+  else renderGameView(d.key);
+}
 
-  const back = el("a", { class: "team-back", href: "#", text: "← Back" });
+function detailBackLink() {
+  const back = el("a", { class: "detail-back", href: "#", text: "← Back" });
   back.addEventListener("click", (e) => {
     e.preventDefault();
     if (history.length > 1) history.back();
     else location.hash = "";
   });
-  root.appendChild(back);
+  return back;
+}
+
+function clearTabActive() {
+  document.querySelectorAll(".tab").forEach((t) => {
+    t.classList.remove("active");
+    t.setAttribute("aria-selected", "false");
+  });
+}
+
+function renderTeamView(key) {
+  const root = document.getElementById("detail-view");
+  root.innerHTML = "";
+  root.appendChild(detailBackLink());
 
   // The team in the context of its group (if the group table is loaded).
   let found = null;
@@ -424,22 +439,67 @@ function renderTeamView(key) {
     : el("div", { class: "empty", text: "No matches scheduled yet." }));
 }
 
-// Hash drives every view: #team/<key> for a team page, #standings/#schedule/
-// #bracket for a tab, empty for the last-used (or default) tab.
+function renderGameView(id) {
+  const root = document.getElementById("detail-view");
+  root.innerHTML = "";
+  root.appendChild(detailBackLink());
+
+  const m = (state.matches.matches || []).find((x) => String(x.id) === String(id));
+  if (!m) {
+    root.appendChild(el("div", { class: "empty", text: "No data for this match yet." }));
+    return;
+  }
+
+  const live = isLive(m), finished = isFinished(m);
+  const showScore = hasScore(m) && (live || finished);
+  const d = m.utcDate ? new Date(m.utcDate) : null;
+
+  root.appendChild(el("div", { class: "game-stage", text: m.groupName
+    ? m.groupName + (m.matchday ? " · Matchday " + m.matchday : "")
+    : (stageTitle(m.stage) || "") }));
+
+  const teamRow = (team, score, win) => el("div", { class: "game-team" + (win ? " win" : "") }, [
+    teamLinkEl(keyOfTeam(team), [crestImg(team), el("span", { class: "name", text: team.name })]),
+    el("span", { class: "game-score", text: showScore ? String(score) : "" }),
+  ]);
+  root.appendChild(el("div", { class: "game-head" }, [
+    teamRow(m.home, m.score.home, m.winner === "HOME"),
+    teamRow(m.away, m.score.away, m.winner === "AWAY"),
+  ]));
+
+  let kickoff;
+  if (live) kickoff = "In progress";
+  else if (finished) kickoff = "Full time";
+  else if (d) kickoff = fmtDay(d) + " · " + fmtTime(d);
+  else kickoff = "Date to be confirmed";
+  root.appendChild(el("div", { class: "game-status" }, [
+    live ? el("span", { class: "badge live", text: "Live" })
+      : (finished ? el("span", { class: "badge ft", text: "FT" }) : null),
+    el("span", { text: kickoff }),
+  ]));
+
+  // Group context for group-stage matches, with both teams highlighted.
+  if (m.group) {
+    const g = (state.standings.groups || []).find((gr) => gr.code === m.group || gr.name === m.groupName);
+    if (g) {
+      root.appendChild(el("h3", { class: "section-title", text: "Group" }));
+      root.appendChild(groupTableEl(g, [keyOfTeam(m.home), keyOfTeam(m.away)]));
+    }
+  }
+}
+
+// Hash drives every view: #team/<key> and #game/<id> for detail pages,
+// #standings/#schedule(/<filter>)/#bracket for tabs, empty for the default tab.
 function route() {
-  const teamKey = teamHashKey();
-  if (teamKey) {
-    document.body.classList.add("viewing-team");
-    // No tab is "current" while on a team page.
-    document.querySelectorAll(".tab").forEach((t) => {
-      t.classList.remove("active");
-      t.setAttribute("aria-selected", "false");
-    });
-    renderTeamView(teamKey);
+  const detail = currentDetail();
+  if (detail) {
+    document.body.classList.add("viewing-detail");
+    clearTabActive();
+    renderDetail(detail);
     window.scrollTo(0, 0);
     return;
   }
-  document.body.classList.remove("viewing-team");
+  document.body.classList.remove("viewing-detail");
 
   const [seg, sub] = location.hash.replace(/^#/, "").split("/");
   const name = ["standings", "schedule", "bracket"].includes(seg)
@@ -493,6 +553,21 @@ function renderMeta() {
     : "Auto-updates every 20 minutes.";
 }
 
+// Live matches show as a stacked, blinking ticker top-right of the masthead.
+function renderLiveBar() {
+  const root = document.getElementById("live-bar");
+  if (!root) return;
+  root.innerHTML = "";
+  const lives = (state.matches.matches || []).filter(isLive);
+  for (const m of lives) {
+    const middle = hasScore(m) ? `${m.score.home} – ${m.score.away}` : "v";
+    root.appendChild(el("a", { class: "live-item", href: "#game/" + encodeURIComponent(m.id) }, [
+      el("span", { class: "live-tag", text: "Live" }),
+      el("span", { class: "live-match", text: `${m.home.name} ${middle} ${m.away.name}` }),
+    ]));
+  }
+}
+
 function relativeTime(iso) {
   const then = new Date(iso).getTime();
   const diff = Math.max(0, Date.now() - then);
@@ -508,13 +583,14 @@ function relativeTime(iso) {
 
 function renderAll() {
   renderMeta();
+  renderLiveBar();
   renderStandings();
   renderScheduleFilters();
   renderSchedule();
   renderBracket();
-  // Keep an open team page in sync with freshly loaded data.
-  const key = teamHashKey();
-  if (key) renderTeamView(key);
+  // Keep an open detail page in sync with freshly loaded data.
+  const d = currentDetail();
+  if (d) renderDetail(d);
 }
 
 function activateTab(name) {
@@ -540,6 +616,13 @@ function initTabs() {
 }
 
 initTabs();
+// Clicking anywhere in a game element (calendar row, bracket box) opens that
+// game's page — unless the click landed on a team link, which wins.
+document.addEventListener("click", (e) => {
+  if (e.target.closest("a.team-link")) return;
+  const g = e.target.closest("[data-game]");
+  if (g) location.hash = "#game/" + encodeURIComponent(g.dataset.game);
+});
 window.addEventListener("hashchange", route);
 route();
 refresh();
