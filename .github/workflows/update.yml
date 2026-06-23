@@ -17,10 +17,11 @@ permissions:
   pages: write
   id-token: write
 
-# Avoid overlapping scheduled runs; let the newest win.
+# Serialize runs but let in-flight Pages deployments finish (cancelling a
+# deploy mid-flight can leave the published site in a bad state).
 concurrency:
   group: "wc-dashboard"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
