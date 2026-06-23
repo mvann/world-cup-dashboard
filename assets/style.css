@@ -73,6 +73,7 @@ a:hover { background: var(--accent); }
    title case. */
 .site-header {
   position: relative;
+  z-index: 10000;          /* sit above the grain overlay so the yellow stays clean */
   overflow: hidden;
   background: var(--accent);
   color: var(--ink);
@@ -182,6 +183,8 @@ a:hover { background: var(--accent); }
   padding: 0 var(--pad);
   background: var(--accent);
   border-bottom: 2px solid var(--accent);
+  position: relative;
+  z-index: 10000;          /* above the grain, like the masthead */
 }
 .tab {
   background: transparent;
