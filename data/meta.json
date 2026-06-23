@@ -1,8 +1,8 @@
 {
-  "updated": "2026-06-23T15:47:51Z",
+  "updated": "2026-06-23T15:55:34Z",
   "competition": "FIFA World Cup",
   "season": "2026",
   "source": "football-data.org",
-  "ok": false,
-  "note": "FOOTBALL_DATA_API_KEY not set; keeping existing data."
+  "ok": true,
+  "note": "12 groups, 104 matches"
 }

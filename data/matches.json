@@ -1,3 +1,2708 @@
 {
-  "matches": []
+  "matches": [
+    {
+      "id": 537327,
+      "utcDate": "2026-06-11T19:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_A",
+      "groupName": "Group A",
+      "matchday": 1,
+      "home": {
+        "id": 769,
+        "name": "Mexico",
+        "tla": "MEX",
+        "crest": "https://crests.football-data.org/769.svg"
+      },
+      "away": {
+        "id": 774,
+        "name": "South Africa",
+        "tla": "RSA",
+        "crest": "https://crests.football-data.org/9396.svg"
+      },
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537328,
+      "utcDate": "2026-06-12T02:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_A",
+      "groupName": "Group A",
+      "matchday": 1,
+      "home": {
+        "id": 772,
+        "name": "South Korea",
+        "tla": "KOR",
+        "crest": "https://crests.football-data.org/772.png"
+      },
+      "away": {
+        "id": 798,
+        "name": "Czechia",
+        "tla": "CZE",
+        "crest": "https://crests.football-data.org/798.svg"
+      },
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537333,
+      "utcDate": "2026-06-12T19:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_B",
+      "groupName": "Group B",
+      "matchday": 1,
+      "home": {
+        "id": 828,
+        "name": "Canada",
+        "tla": "CAN",
+        "crest": "https://crests.football-data.org/canada.svg"
+      },
+      "away": {
+        "id": 1060,
+        "name": "Bosnia-Herzegovina",
+        "tla": "BIH",
+        "crest": "https://crests.football-data.org/bosnia.svg"
+      },
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "winner": "DRAW"
+    },
+    {
+      "id": 537345,
+      "utcDate": "2026-06-13T01:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_D",
+      "groupName": "Group D",
+      "matchday": 1,
+      "home": {
+        "id": 771,
+        "name": "United States",
+        "tla": "USA",
+        "crest": "https://crests.football-data.org/usa.svg"
+      },
+      "away": {
+        "id": 761,
+        "name": "Paraguay",
+        "tla": "PAR",
+        "crest": "https://crests.football-data.org/761.svg"
+      },
+      "score": {
+        "home": 4,
+        "away": 1
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537334,
+      "utcDate": "2026-06-13T19:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_B",
+      "groupName": "Group B",
+      "matchday": 1,
+      "home": {
+        "id": 8030,
+        "name": "Qatar",
+        "tla": "QAT",
+        "crest": "https://crests.football-data.org/8030.svg"
+      },
+      "away": {
+        "id": 788,
+        "name": "Switzerland",
+        "tla": "SUI",
+        "crest": "https://crests.football-data.org/788.svg"
+      },
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "winner": "DRAW"
+    },
+    {
+      "id": 537339,
+      "utcDate": "2026-06-13T22:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_C",
+      "groupName": "Group C",
+      "matchday": 1,
+      "home": {
+        "id": 764,
+        "name": "Brazil",
+        "tla": "BRA",
+        "crest": "https://crests.football-data.org/764.svg"
+      },
+      "away": {
+        "id": 815,
+        "name": "Morocco",
+        "tla": "MAR",
+        "crest": "https://crests.football-data.org/morocco.svg"
+      },
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "winner": "DRAW"
+    },
+    {
+      "id": 537340,
+      "utcDate": "2026-06-14T01:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_C",
+      "groupName": "Group C",
+      "matchday": 1,
+      "home": {
+        "id": 836,
+        "name": "Haiti",
+        "tla": "HAI",
+        "crest": "https://crests.football-data.org/haiti.svg"
+      },
+      "away": {
+        "id": 8873,
+        "name": "Scotland",
+        "tla": "SCO",
+        "crest": "https://crests.football-data.org/814.svg"
+      },
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "winner": "AWAY_TEAM"
+    },
+    {
+      "id": 537346,
+      "utcDate": "2026-06-14T04:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_D",
+      "groupName": "Group D",
+      "matchday": 1,
+      "home": {
+        "id": 779,
+        "name": "Australia",
+        "tla": "AUS",
+        "crest": "https://crests.football-data.org/779.svg"
+      },
+      "away": {
+        "id": 803,
+        "name": "Turkey",
+        "tla": "TUR",
+        "crest": "https://crests.football-data.org/803.svg"
+      },
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537351,
+      "utcDate": "2026-06-14T17:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_E",
+      "groupName": "Group E",
+      "matchday": 1,
+      "home": {
+        "id": 759,
+        "name": "Germany",
+        "tla": "GER",
+        "crest": "https://crests.football-data.org/759.svg"
+      },
+      "away": {
+        "id": 9460,
+        "name": "Curaçao",
+        "tla": "CUW",
+        "crest": "https://crests.football-data.org/curacao.svg"
+      },
+      "score": {
+        "home": 7,
+        "away": 1
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537357,
+      "utcDate": "2026-06-14T20:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_F",
+      "groupName": "Group F",
+      "matchday": 1,
+      "home": {
+        "id": 8601,
+        "name": "Netherlands",
+        "tla": "NED",
+        "crest": "https://crests.football-data.org/8601.svg"
+      },
+      "away": {
+        "id": 766,
+        "name": "Japan",
+        "tla": "JPN",
+        "crest": "https://crests.football-data.org/766.svg"
+      },
+      "score": {
+        "home": 2,
+        "away": 2
+      },
+      "winner": "DRAW"
+    },
+    {
+      "id": 537352,
+      "utcDate": "2026-06-14T23:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_E",
+      "groupName": "Group E",
+      "matchday": 1,
+      "home": {
+        "id": 1935,
+        "name": "Ivory Coast",
+        "tla": "CIV",
+        "crest": "https://crests.football-data.org/787.svg"
+      },
+      "away": {
+        "id": 791,
+        "name": "Ecuador",
+        "tla": "ECU",
+        "crest": "https://crests.football-data.org/791.svg"
+      },
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537358,
+      "utcDate": "2026-06-15T02:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_F",
+      "groupName": "Group F",
+      "matchday": 1,
+      "home": {
+        "id": 792,
+        "name": "Sweden",
+        "tla": "SWE",
+        "crest": "https://crests.football-data.org/792.svg"
+      },
+      "away": {
+        "id": 802,
+        "name": "Tunisia",
+        "tla": "TUN",
+        "crest": "https://crests.football-data.org/tunisia.svg"
+      },
+      "score": {
+        "home": 5,
+        "away": 1
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537369,
+      "utcDate": "2026-06-15T16:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_H",
+      "groupName": "Group H",
+      "matchday": 1,
+      "home": {
+        "id": 760,
+        "name": "Spain",
+        "tla": "ESP",
+        "crest": "https://crests.football-data.org/760.svg"
+      },
+      "away": {
+        "id": 1930,
+        "name": "Cape Verde Islands",
+        "tla": "CPV",
+        "crest": "https://crests.football-data.org/cape_verde.svg"
+      },
+      "score": {
+        "home": 0,
+        "away": 0
+      },
+      "winner": "DRAW"
+    },
+    {
+      "id": 537363,
+      "utcDate": "2026-06-15T19:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_G",
+      "groupName": "Group G",
+      "matchday": 1,
+      "home": {
+        "id": 805,
+        "name": "Belgium",
+        "tla": "BEL",
+        "crest": "https://crests.football-data.org/805.svg"
+      },
+      "away": {
+        "id": 825,
+        "name": "Egypt",
+        "tla": "EGY",
+        "crest": "https://crests.football-data.org/825.svg"
+      },
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "winner": "DRAW"
+    },
+    {
+      "id": 537370,
+      "utcDate": "2026-06-15T22:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_H",
+      "groupName": "Group H",
+      "matchday": 1,
+      "home": {
+        "id": 801,
+        "name": "Saudi Arabia",
+        "tla": "KSA",
+        "crest": "https://crests.football-data.org/saudi_arabia.svg"
+      },
+      "away": {
+        "id": 758,
+        "name": "Uruguay",
+        "tla": "URU",
+        "crest": "https://crests.football-data.org/758.svg"
+      },
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "winner": "DRAW"
+    },
+    {
+      "id": 537364,
+      "utcDate": "2026-06-16T01:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_G",
+      "groupName": "Group G",
+      "matchday": 1,
+      "home": {
+        "id": 840,
+        "name": "Iran",
+        "tla": "IRN",
+        "crest": "https://crests.football-data.org/iran.svg"
+      },
+      "away": {
+        "id": 783,
+        "name": "New Zealand",
+        "tla": "NZL",
+        "crest": "https://crests.football-data.org/783.svg"
+      },
+      "score": {
+        "home": 2,
+        "away": 2
+      },
+      "winner": "DRAW"
+    },
+    {
+      "id": 537391,
+      "utcDate": "2026-06-16T19:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_I",
+      "groupName": "Group I",
+      "matchday": 1,
+      "home": {
+        "id": 773,
+        "name": "France",
+        "tla": "FRA",
+        "crest": "https://crests.football-data.org/773.svg"
+      },
+      "away": {
+        "id": 804,
+        "name": "Senegal",
+        "tla": "SEN",
+        "crest": "https://crests.football-data.org/senegal.svg"
+      },
+      "score": {
+        "home": 3,
+        "away": 1
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537392,
+      "utcDate": "2026-06-16T22:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_I",
+      "groupName": "Group I",
+      "matchday": 1,
+      "home": {
+        "id": 8062,
+        "name": "Iraq",
+        "tla": "IRQ",
+        "crest": "https://crests.football-data.org/iraq.svg"
+      },
+      "away": {
+        "id": 8872,
+        "name": "Norway",
+        "tla": "NOR",
+        "crest": "https://crests.football-data.org/813.svg"
+      },
+      "score": {
+        "home": 1,
+        "away": 4
+      },
+      "winner": "AWAY_TEAM"
+    },
+    {
+      "id": 537397,
+      "utcDate": "2026-06-17T01:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_J",
+      "groupName": "Group J",
+      "matchday": 1,
+      "home": {
+        "id": 762,
+        "name": "Argentina",
+        "tla": "ARG",
+        "crest": "https://crests.football-data.org/762.png"
+      },
+      "away": {
+        "id": 778,
+        "name": "Algeria",
+        "tla": "ALG",
+        "crest": "https://crests.football-data.org/algeria.svg"
+      },
+      "score": {
+        "home": 3,
+        "away": 0
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537398,
+      "utcDate": "2026-06-17T04:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_J",
+      "groupName": "Group J",
+      "matchday": 1,
+      "home": {
+        "id": 816,
+        "name": "Austria",
+        "tla": "AUT",
+        "crest": "https://crests.football-data.org/816.svg"
+      },
+      "away": {
+        "id": 8049,
+        "name": "Jordan",
+        "tla": "JOR",
+        "crest": "https://crests.football-data.org/8049.png"
+      },
+      "score": {
+        "home": 3,
+        "away": 1
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537403,
+      "utcDate": "2026-06-17T17:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_K",
+      "groupName": "Group K",
+      "matchday": 1,
+      "home": {
+        "id": 765,
+        "name": "Portugal",
+        "tla": "POR",
+        "crest": "https://crests.football-data.org/765.svg"
+      },
+      "away": {
+        "id": 1934,
+        "name": "Congo DR",
+        "tla": "COD",
+        "crest": "https://crests.football-data.org/congo_dr.svg"
+      },
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "winner": "DRAW"
+    },
+    {
+      "id": 537409,
+      "utcDate": "2026-06-17T20:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_L",
+      "groupName": "Group L",
+      "matchday": 1,
+      "home": {
+        "id": 770,
+        "name": "England",
+        "tla": "ENG",
+        "crest": "https://crests.football-data.org/770.svg"
+      },
+      "away": {
+        "id": 799,
+        "name": "Croatia",
+        "tla": "CRO",
+        "crest": "https://crests.football-data.org/799.svg"
+      },
+      "score": {
+        "home": 4,
+        "away": 2
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537410,
+      "utcDate": "2026-06-17T23:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_L",
+      "groupName": "Group L",
+      "matchday": 1,
+      "home": {
+        "id": 763,
+        "name": "Ghana",
+        "tla": "GHA",
+        "crest": "https://crests.football-data.org/ghana.svg"
+      },
+      "away": {
+        "id": 1836,
+        "name": "Panama",
+        "tla": "PAN",
+        "crest": "https://crests.football-data.org/panama.svg"
+      },
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537404,
+      "utcDate": "2026-06-18T02:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_K",
+      "groupName": "Group K",
+      "matchday": 1,
+      "home": {
+        "id": 8070,
+        "name": "Uzbekistan",
+        "tla": "UZB",
+        "crest": "https://crests.football-data.org/8070.png"
+      },
+      "away": {
+        "id": 818,
+        "name": "Colombia",
+        "tla": "COL",
+        "crest": "https://crests.football-data.org/818.svg"
+      },
+      "score": {
+        "home": 1,
+        "away": 3
+      },
+      "winner": "AWAY_TEAM"
+    },
+    {
+      "id": 537329,
+      "utcDate": "2026-06-18T16:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_A",
+      "groupName": "Group A",
+      "matchday": 2,
+      "home": {
+        "id": 798,
+        "name": "Czechia",
+        "tla": "CZE",
+        "crest": "https://crests.football-data.org/798.svg"
+      },
+      "away": {
+        "id": 774,
+        "name": "South Africa",
+        "tla": "RSA",
+        "crest": "https://crests.football-data.org/9396.svg"
+      },
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "winner": "DRAW"
+    },
+    {
+      "id": 537335,
+      "utcDate": "2026-06-18T19:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_B",
+      "groupName": "Group B",
+      "matchday": 2,
+      "home": {
+        "id": 788,
+        "name": "Switzerland",
+        "tla": "SUI",
+        "crest": "https://crests.football-data.org/788.svg"
+      },
+      "away": {
+        "id": 1060,
+        "name": "Bosnia-Herzegovina",
+        "tla": "BIH",
+        "crest": "https://crests.football-data.org/bosnia.svg"
+      },
+      "score": {
+        "home": 4,
+        "away": 1
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537336,
+      "utcDate": "2026-06-18T22:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_B",
+      "groupName": "Group B",
+      "matchday": 2,
+      "home": {
+        "id": 828,
+        "name": "Canada",
+        "tla": "CAN",
+        "crest": "https://crests.football-data.org/canada.svg"
+      },
+      "away": {
+        "id": 8030,
+        "name": "Qatar",
+        "tla": "QAT",
+        "crest": "https://crests.football-data.org/8030.svg"
+      },
+      "score": {
+        "home": 6,
+        "away": 0
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537330,
+      "utcDate": "2026-06-19T01:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_A",
+      "groupName": "Group A",
+      "matchday": 2,
+      "home": {
+        "id": 769,
+        "name": "Mexico",
+        "tla": "MEX",
+        "crest": "https://crests.football-data.org/769.svg"
+      },
+      "away": {
+        "id": 772,
+        "name": "South Korea",
+        "tla": "KOR",
+        "crest": "https://crests.football-data.org/772.png"
+      },
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537348,
+      "utcDate": "2026-06-19T19:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_D",
+      "groupName": "Group D",
+      "matchday": 2,
+      "home": {
+        "id": 771,
+        "name": "United States",
+        "tla": "USA",
+        "crest": "https://crests.football-data.org/usa.svg"
+      },
+      "away": {
+        "id": 779,
+        "name": "Australia",
+        "tla": "AUS",
+        "crest": "https://crests.football-data.org/779.svg"
+      },
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537342,
+      "utcDate": "2026-06-19T22:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_C",
+      "groupName": "Group C",
+      "matchday": 2,
+      "home": {
+        "id": 8873,
+        "name": "Scotland",
+        "tla": "SCO",
+        "crest": "https://crests.football-data.org/814.svg"
+      },
+      "away": {
+        "id": 815,
+        "name": "Morocco",
+        "tla": "MAR",
+        "crest": "https://crests.football-data.org/morocco.svg"
+      },
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "winner": "AWAY_TEAM"
+    },
+    {
+      "id": 537341,
+      "utcDate": "2026-06-20T00:30:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_C",
+      "groupName": "Group C",
+      "matchday": 2,
+      "home": {
+        "id": 764,
+        "name": "Brazil",
+        "tla": "BRA",
+        "crest": "https://crests.football-data.org/764.svg"
+      },
+      "away": {
+        "id": 836,
+        "name": "Haiti",
+        "tla": "HAI",
+        "crest": "https://crests.football-data.org/haiti.svg"
+      },
+      "score": {
+        "home": 3,
+        "away": 0
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537347,
+      "utcDate": "2026-06-20T03:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_D",
+      "groupName": "Group D",
+      "matchday": 2,
+      "home": {
+        "id": 803,
+        "name": "Turkey",
+        "tla": "TUR",
+        "crest": "https://crests.football-data.org/803.svg"
+      },
+      "away": {
+        "id": 761,
+        "name": "Paraguay",
+        "tla": "PAR",
+        "crest": "https://crests.football-data.org/761.svg"
+      },
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "winner": "AWAY_TEAM"
+    },
+    {
+      "id": 537359,
+      "utcDate": "2026-06-20T17:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_F",
+      "groupName": "Group F",
+      "matchday": 2,
+      "home": {
+        "id": 8601,
+        "name": "Netherlands",
+        "tla": "NED",
+        "crest": "https://crests.football-data.org/8601.svg"
+      },
+      "away": {
+        "id": 792,
+        "name": "Sweden",
+        "tla": "SWE",
+        "crest": "https://crests.football-data.org/792.svg"
+      },
+      "score": {
+        "home": 5,
+        "away": 1
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537353,
+      "utcDate": "2026-06-20T20:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_E",
+      "groupName": "Group E",
+      "matchday": 2,
+      "home": {
+        "id": 759,
+        "name": "Germany",
+        "tla": "GER",
+        "crest": "https://crests.football-data.org/759.svg"
+      },
+      "away": {
+        "id": 1935,
+        "name": "Ivory Coast",
+        "tla": "CIV",
+        "crest": "https://crests.football-data.org/787.svg"
+      },
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537354,
+      "utcDate": "2026-06-21T00:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_E",
+      "groupName": "Group E",
+      "matchday": 2,
+      "home": {
+        "id": 791,
+        "name": "Ecuador",
+        "tla": "ECU",
+        "crest": "https://crests.football-data.org/791.svg"
+      },
+      "away": {
+        "id": 9460,
+        "name": "Curaçao",
+        "tla": "CUW",
+        "crest": "https://crests.football-data.org/curacao.svg"
+      },
+      "score": {
+        "home": 0,
+        "away": 0
+      },
+      "winner": "DRAW"
+    },
+    {
+      "id": 537360,
+      "utcDate": "2026-06-21T04:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_F",
+      "groupName": "Group F",
+      "matchday": 2,
+      "home": {
+        "id": 802,
+        "name": "Tunisia",
+        "tla": "TUN",
+        "crest": "https://crests.football-data.org/tunisia.svg"
+      },
+      "away": {
+        "id": 766,
+        "name": "Japan",
+        "tla": "JPN",
+        "crest": "https://crests.football-data.org/766.svg"
+      },
+      "score": {
+        "home": 0,
+        "away": 4
+      },
+      "winner": "AWAY_TEAM"
+    },
+    {
+      "id": 537371,
+      "utcDate": "2026-06-21T16:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_H",
+      "groupName": "Group H",
+      "matchday": 2,
+      "home": {
+        "id": 760,
+        "name": "Spain",
+        "tla": "ESP",
+        "crest": "https://crests.football-data.org/760.svg"
+      },
+      "away": {
+        "id": 801,
+        "name": "Saudi Arabia",
+        "tla": "KSA",
+        "crest": "https://crests.football-data.org/saudi_arabia.svg"
+      },
+      "score": {
+        "home": 4,
+        "away": 0
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537365,
+      "utcDate": "2026-06-21T19:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_G",
+      "groupName": "Group G",
+      "matchday": 2,
+      "home": {
+        "id": 805,
+        "name": "Belgium",
+        "tla": "BEL",
+        "crest": "https://crests.football-data.org/805.svg"
+      },
+      "away": {
+        "id": 840,
+        "name": "Iran",
+        "tla": "IRN",
+        "crest": "https://crests.football-data.org/iran.svg"
+      },
+      "score": {
+        "home": 0,
+        "away": 0
+      },
+      "winner": "DRAW"
+    },
+    {
+      "id": 537372,
+      "utcDate": "2026-06-21T22:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_H",
+      "groupName": "Group H",
+      "matchday": 2,
+      "home": {
+        "id": 758,
+        "name": "Uruguay",
+        "tla": "URU",
+        "crest": "https://crests.football-data.org/758.svg"
+      },
+      "away": {
+        "id": 1930,
+        "name": "Cape Verde Islands",
+        "tla": "CPV",
+        "crest": "https://crests.football-data.org/cape_verde.svg"
+      },
+      "score": {
+        "home": 2,
+        "away": 2
+      },
+      "winner": "DRAW"
+    },
+    {
+      "id": 537366,
+      "utcDate": "2026-06-22T01:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_G",
+      "groupName": "Group G",
+      "matchday": 2,
+      "home": {
+        "id": 783,
+        "name": "New Zealand",
+        "tla": "NZL",
+        "crest": "https://crests.football-data.org/783.svg"
+      },
+      "away": {
+        "id": 825,
+        "name": "Egypt",
+        "tla": "EGY",
+        "crest": "https://crests.football-data.org/825.svg"
+      },
+      "score": {
+        "home": 1,
+        "away": 3
+      },
+      "winner": "AWAY_TEAM"
+    },
+    {
+      "id": 537399,
+      "utcDate": "2026-06-22T17:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_J",
+      "groupName": "Group J",
+      "matchday": 2,
+      "home": {
+        "id": 762,
+        "name": "Argentina",
+        "tla": "ARG",
+        "crest": "https://crests.football-data.org/762.png"
+      },
+      "away": {
+        "id": 816,
+        "name": "Austria",
+        "tla": "AUT",
+        "crest": "https://crests.football-data.org/816.svg"
+      },
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537393,
+      "utcDate": "2026-06-22T21:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_I",
+      "groupName": "Group I",
+      "matchday": 2,
+      "home": {
+        "id": 773,
+        "name": "France",
+        "tla": "FRA",
+        "crest": "https://crests.football-data.org/773.svg"
+      },
+      "away": {
+        "id": 8062,
+        "name": "Iraq",
+        "tla": "IRQ",
+        "crest": "https://crests.football-data.org/iraq.svg"
+      },
+      "score": {
+        "home": 3,
+        "away": 0
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537394,
+      "utcDate": "2026-06-23T00:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_I",
+      "groupName": "Group I",
+      "matchday": 2,
+      "home": {
+        "id": 8872,
+        "name": "Norway",
+        "tla": "NOR",
+        "crest": "https://crests.football-data.org/813.svg"
+      },
+      "away": {
+        "id": 804,
+        "name": "Senegal",
+        "tla": "SEN",
+        "crest": "https://crests.football-data.org/senegal.svg"
+      },
+      "score": {
+        "home": 3,
+        "away": 2
+      },
+      "winner": "HOME_TEAM"
+    },
+    {
+      "id": 537400,
+      "utcDate": "2026-06-23T03:00:00Z",
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_J",
+      "groupName": "Group J",
+      "matchday": 2,
+      "home": {
+        "id": 8049,
+        "name": "Jordan",
+        "tla": "JOR",
+        "crest": "https://crests.football-data.org/8049.png"
+      },
+      "away": {
+        "id": 778,
+        "name": "Algeria",
+        "tla": "ALG",
+        "crest": "https://crests.football-data.org/algeria.svg"
+      },
+      "score": {
+        "home": 1,
+        "away": 2
+      },
+      "winner": "AWAY_TEAM"
+    },
+    {
+      "id": 537405,
+      "utcDate": "2026-06-23T17:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_K",
+      "groupName": "Group K",
+      "matchday": 2,
+      "home": {
+        "id": 765,
+        "name": "Portugal",
+        "tla": "POR",
+        "crest": "https://crests.football-data.org/765.svg"
+      },
+      "away": {
+        "id": 8070,
+        "name": "Uzbekistan",
+        "tla": "UZB",
+        "crest": "https://crests.football-data.org/8070.png"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537411,
+      "utcDate": "2026-06-23T20:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_L",
+      "groupName": "Group L",
+      "matchday": 2,
+      "home": {
+        "id": 770,
+        "name": "England",
+        "tla": "ENG",
+        "crest": "https://crests.football-data.org/770.svg"
+      },
+      "away": {
+        "id": 763,
+        "name": "Ghana",
+        "tla": "GHA",
+        "crest": "https://crests.football-data.org/ghana.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537412,
+      "utcDate": "2026-06-23T23:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_L",
+      "groupName": "Group L",
+      "matchday": 2,
+      "home": {
+        "id": 1836,
+        "name": "Panama",
+        "tla": "PAN",
+        "crest": "https://crests.football-data.org/panama.svg"
+      },
+      "away": {
+        "id": 799,
+        "name": "Croatia",
+        "tla": "CRO",
+        "crest": "https://crests.football-data.org/799.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537406,
+      "utcDate": "2026-06-24T02:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_K",
+      "groupName": "Group K",
+      "matchday": 2,
+      "home": {
+        "id": 818,
+        "name": "Colombia",
+        "tla": "COL",
+        "crest": "https://crests.football-data.org/818.svg"
+      },
+      "away": {
+        "id": 1934,
+        "name": "Congo DR",
+        "tla": "COD",
+        "crest": "https://crests.football-data.org/congo_dr.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537337,
+      "utcDate": "2026-06-24T19:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_B",
+      "groupName": "Group B",
+      "matchday": 3,
+      "home": {
+        "id": 788,
+        "name": "Switzerland",
+        "tla": "SUI",
+        "crest": "https://crests.football-data.org/788.svg"
+      },
+      "away": {
+        "id": 828,
+        "name": "Canada",
+        "tla": "CAN",
+        "crest": "https://crests.football-data.org/canada.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537338,
+      "utcDate": "2026-06-24T19:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_B",
+      "groupName": "Group B",
+      "matchday": 3,
+      "home": {
+        "id": 1060,
+        "name": "Bosnia-Herzegovina",
+        "tla": "BIH",
+        "crest": "https://crests.football-data.org/bosnia.svg"
+      },
+      "away": {
+        "id": 8030,
+        "name": "Qatar",
+        "tla": "QAT",
+        "crest": "https://crests.football-data.org/8030.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537343,
+      "utcDate": "2026-06-24T22:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_C",
+      "groupName": "Group C",
+      "matchday": 3,
+      "home": {
+        "id": 8873,
+        "name": "Scotland",
+        "tla": "SCO",
+        "crest": "https://crests.football-data.org/814.svg"
+      },
+      "away": {
+        "id": 764,
+        "name": "Brazil",
+        "tla": "BRA",
+        "crest": "https://crests.football-data.org/764.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537344,
+      "utcDate": "2026-06-24T22:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_C",
+      "groupName": "Group C",
+      "matchday": 3,
+      "home": {
+        "id": 815,
+        "name": "Morocco",
+        "tla": "MAR",
+        "crest": "https://crests.football-data.org/morocco.svg"
+      },
+      "away": {
+        "id": 836,
+        "name": "Haiti",
+        "tla": "HAI",
+        "crest": "https://crests.football-data.org/haiti.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537331,
+      "utcDate": "2026-06-25T01:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_A",
+      "groupName": "Group A",
+      "matchday": 3,
+      "home": {
+        "id": 798,
+        "name": "Czechia",
+        "tla": "CZE",
+        "crest": "https://crests.football-data.org/798.svg"
+      },
+      "away": {
+        "id": 769,
+        "name": "Mexico",
+        "tla": "MEX",
+        "crest": "https://crests.football-data.org/769.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537332,
+      "utcDate": "2026-06-25T01:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_A",
+      "groupName": "Group A",
+      "matchday": 3,
+      "home": {
+        "id": 774,
+        "name": "South Africa",
+        "tla": "RSA",
+        "crest": "https://crests.football-data.org/9396.svg"
+      },
+      "away": {
+        "id": 772,
+        "name": "South Korea",
+        "tla": "KOR",
+        "crest": "https://crests.football-data.org/772.png"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537355,
+      "utcDate": "2026-06-25T20:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_E",
+      "groupName": "Group E",
+      "matchday": 3,
+      "home": {
+        "id": 791,
+        "name": "Ecuador",
+        "tla": "ECU",
+        "crest": "https://crests.football-data.org/791.svg"
+      },
+      "away": {
+        "id": 759,
+        "name": "Germany",
+        "tla": "GER",
+        "crest": "https://crests.football-data.org/759.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537356,
+      "utcDate": "2026-06-25T20:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_E",
+      "groupName": "Group E",
+      "matchday": 3,
+      "home": {
+        "id": 9460,
+        "name": "Curaçao",
+        "tla": "CUW",
+        "crest": "https://crests.football-data.org/curacao.svg"
+      },
+      "away": {
+        "id": 1935,
+        "name": "Ivory Coast",
+        "tla": "CIV",
+        "crest": "https://crests.football-data.org/787.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537361,
+      "utcDate": "2026-06-25T23:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_F",
+      "groupName": "Group F",
+      "matchday": 3,
+      "home": {
+        "id": 802,
+        "name": "Tunisia",
+        "tla": "TUN",
+        "crest": "https://crests.football-data.org/tunisia.svg"
+      },
+      "away": {
+        "id": 8601,
+        "name": "Netherlands",
+        "tla": "NED",
+        "crest": "https://crests.football-data.org/8601.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537362,
+      "utcDate": "2026-06-25T23:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_F",
+      "groupName": "Group F",
+      "matchday": 3,
+      "home": {
+        "id": 766,
+        "name": "Japan",
+        "tla": "JPN",
+        "crest": "https://crests.football-data.org/766.svg"
+      },
+      "away": {
+        "id": 792,
+        "name": "Sweden",
+        "tla": "SWE",
+        "crest": "https://crests.football-data.org/792.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537349,
+      "utcDate": "2026-06-26T02:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_D",
+      "groupName": "Group D",
+      "matchday": 3,
+      "home": {
+        "id": 803,
+        "name": "Turkey",
+        "tla": "TUR",
+        "crest": "https://crests.football-data.org/803.svg"
+      },
+      "away": {
+        "id": 771,
+        "name": "United States",
+        "tla": "USA",
+        "crest": "https://crests.football-data.org/usa.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537350,
+      "utcDate": "2026-06-26T02:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_D",
+      "groupName": "Group D",
+      "matchday": 3,
+      "home": {
+        "id": 761,
+        "name": "Paraguay",
+        "tla": "PAR",
+        "crest": "https://crests.football-data.org/761.svg"
+      },
+      "away": {
+        "id": 779,
+        "name": "Australia",
+        "tla": "AUS",
+        "crest": "https://crests.football-data.org/779.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537395,
+      "utcDate": "2026-06-26T19:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_I",
+      "groupName": "Group I",
+      "matchday": 3,
+      "home": {
+        "id": 8872,
+        "name": "Norway",
+        "tla": "NOR",
+        "crest": "https://crests.football-data.org/813.svg"
+      },
+      "away": {
+        "id": 773,
+        "name": "France",
+        "tla": "FRA",
+        "crest": "https://crests.football-data.org/773.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537396,
+      "utcDate": "2026-06-26T19:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_I",
+      "groupName": "Group I",
+      "matchday": 3,
+      "home": {
+        "id": 804,
+        "name": "Senegal",
+        "tla": "SEN",
+        "crest": "https://crests.football-data.org/senegal.svg"
+      },
+      "away": {
+        "id": 8062,
+        "name": "Iraq",
+        "tla": "IRQ",
+        "crest": "https://crests.football-data.org/iraq.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537373,
+      "utcDate": "2026-06-27T00:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_H",
+      "groupName": "Group H",
+      "matchday": 3,
+      "home": {
+        "id": 758,
+        "name": "Uruguay",
+        "tla": "URU",
+        "crest": "https://crests.football-data.org/758.svg"
+      },
+      "away": {
+        "id": 760,
+        "name": "Spain",
+        "tla": "ESP",
+        "crest": "https://crests.football-data.org/760.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537374,
+      "utcDate": "2026-06-27T00:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_H",
+      "groupName": "Group H",
+      "matchday": 3,
+      "home": {
+        "id": 1930,
+        "name": "Cape Verde Islands",
+        "tla": "CPV",
+        "crest": "https://crests.football-data.org/cape_verde.svg"
+      },
+      "away": {
+        "id": 801,
+        "name": "Saudi Arabia",
+        "tla": "KSA",
+        "crest": "https://crests.football-data.org/saudi_arabia.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537367,
+      "utcDate": "2026-06-27T03:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_G",
+      "groupName": "Group G",
+      "matchday": 3,
+      "home": {
+        "id": 783,
+        "name": "New Zealand",
+        "tla": "NZL",
+        "crest": "https://crests.football-data.org/783.svg"
+      },
+      "away": {
+        "id": 805,
+        "name": "Belgium",
+        "tla": "BEL",
+        "crest": "https://crests.football-data.org/805.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537368,
+      "utcDate": "2026-06-27T03:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_G",
+      "groupName": "Group G",
+      "matchday": 3,
+      "home": {
+        "id": 825,
+        "name": "Egypt",
+        "tla": "EGY",
+        "crest": "https://crests.football-data.org/825.svg"
+      },
+      "away": {
+        "id": 840,
+        "name": "Iran",
+        "tla": "IRN",
+        "crest": "https://crests.football-data.org/iran.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537413,
+      "utcDate": "2026-06-27T21:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_L",
+      "groupName": "Group L",
+      "matchday": 3,
+      "home": {
+        "id": 1836,
+        "name": "Panama",
+        "tla": "PAN",
+        "crest": "https://crests.football-data.org/panama.svg"
+      },
+      "away": {
+        "id": 770,
+        "name": "England",
+        "tla": "ENG",
+        "crest": "https://crests.football-data.org/770.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537414,
+      "utcDate": "2026-06-27T21:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_L",
+      "groupName": "Group L",
+      "matchday": 3,
+      "home": {
+        "id": 799,
+        "name": "Croatia",
+        "tla": "CRO",
+        "crest": "https://crests.football-data.org/799.svg"
+      },
+      "away": {
+        "id": 763,
+        "name": "Ghana",
+        "tla": "GHA",
+        "crest": "https://crests.football-data.org/ghana.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537407,
+      "utcDate": "2026-06-27T23:30:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_K",
+      "groupName": "Group K",
+      "matchday": 3,
+      "home": {
+        "id": 818,
+        "name": "Colombia",
+        "tla": "COL",
+        "crest": "https://crests.football-data.org/818.svg"
+      },
+      "away": {
+        "id": 765,
+        "name": "Portugal",
+        "tla": "POR",
+        "crest": "https://crests.football-data.org/765.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537408,
+      "utcDate": "2026-06-27T23:30:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_K",
+      "groupName": "Group K",
+      "matchday": 3,
+      "home": {
+        "id": 1934,
+        "name": "Congo DR",
+        "tla": "COD",
+        "crest": "https://crests.football-data.org/congo_dr.svg"
+      },
+      "away": {
+        "id": 8070,
+        "name": "Uzbekistan",
+        "tla": "UZB",
+        "crest": "https://crests.football-data.org/8070.png"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537401,
+      "utcDate": "2026-06-28T02:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_J",
+      "groupName": "Group J",
+      "matchday": 3,
+      "home": {
+        "id": 8049,
+        "name": "Jordan",
+        "tla": "JOR",
+        "crest": "https://crests.football-data.org/8049.png"
+      },
+      "away": {
+        "id": 762,
+        "name": "Argentina",
+        "tla": "ARG",
+        "crest": "https://crests.football-data.org/762.png"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537402,
+      "utcDate": "2026-06-28T02:00:00Z",
+      "status": "TIMED",
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_J",
+      "groupName": "Group J",
+      "matchday": 3,
+      "home": {
+        "id": 778,
+        "name": "Algeria",
+        "tla": "ALG",
+        "crest": "https://crests.football-data.org/algeria.svg"
+      },
+      "away": {
+        "id": 816,
+        "name": "Austria",
+        "tla": "AUT",
+        "crest": "https://crests.football-data.org/816.svg"
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537417,
+      "utcDate": "2026-06-28T19:00:00Z",
+      "status": "TIMED",
+      "stage": "LAST_32",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537423,
+      "utcDate": "2026-06-29T17:00:00Z",
+      "status": "TIMED",
+      "stage": "LAST_32",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537415,
+      "utcDate": "2026-06-29T20:30:00Z",
+      "status": "TIMED",
+      "stage": "LAST_32",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537418,
+      "utcDate": "2026-06-30T01:00:00Z",
+      "status": "TIMED",
+      "stage": "LAST_32",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537424,
+      "utcDate": "2026-06-30T17:00:00Z",
+      "status": "TIMED",
+      "stage": "LAST_32",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537416,
+      "utcDate": "2026-06-30T21:00:00Z",
+      "status": "TIMED",
+      "stage": "LAST_32",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537425,
+      "utcDate": "2026-07-01T01:00:00Z",
+      "status": "TIMED",
+      "stage": "LAST_32",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537426,
+      "utcDate": "2026-07-01T16:00:00Z",
+      "status": "TIMED",
+      "stage": "LAST_32",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537422,
+      "utcDate": "2026-07-01T20:00:00Z",
+      "status": "TIMED",
+      "stage": "LAST_32",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537421,
+      "utcDate": "2026-07-02T00:00:00Z",
+      "status": "TIMED",
+      "stage": "LAST_32",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537420,
+      "utcDate": "2026-07-02T19:00:00Z",
+      "status": "TIMED",
+      "stage": "LAST_32",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537419,
+      "utcDate": "2026-07-02T23:00:00Z",
+      "status": "TIMED",
+      "stage": "LAST_32",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537429,
+      "utcDate": "2026-07-03T03:00:00Z",
+      "status": "TIMED",
+      "stage": "LAST_32",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537428,
+      "utcDate": "2026-07-03T18:00:00Z",
+      "status": "TIMED",
+      "stage": "LAST_32",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537427,
+      "utcDate": "2026-07-03T22:00:00Z",
+      "status": "TIMED",
+      "stage": "LAST_32",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537430,
+      "utcDate": "2026-07-04T01:30:00Z",
+      "status": "TIMED",
+      "stage": "LAST_32",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537376,
+      "utcDate": "2026-07-04T17:00:00Z",
+      "status": "TIMED",
+      "stage": "LAST_16",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537375,
+      "utcDate": "2026-07-04T21:00:00Z",
+      "status": "TIMED",
+      "stage": "LAST_16",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537377,
+      "utcDate": "2026-07-05T20:00:00Z",
+      "status": "TIMED",
+      "stage": "LAST_16",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537378,
+      "utcDate": "2026-07-06T00:00:00Z",
+      "status": "TIMED",
+      "stage": "LAST_16",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537379,
+      "utcDate": "2026-07-06T19:00:00Z",
+      "status": "TIMED",
+      "stage": "LAST_16",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537380,
+      "utcDate": "2026-07-07T00:00:00Z",
+      "status": "TIMED",
+      "stage": "LAST_16",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537381,
+      "utcDate": "2026-07-07T16:00:00Z",
+      "status": "TIMED",
+      "stage": "LAST_16",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537382,
+      "utcDate": "2026-07-07T20:00:00Z",
+      "status": "TIMED",
+      "stage": "LAST_16",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537383,
+      "utcDate": "2026-07-09T20:00:00Z",
+      "status": "TIMED",
+      "stage": "QUARTER_FINALS",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537384,
+      "utcDate": "2026-07-10T19:00:00Z",
+      "status": "TIMED",
+      "stage": "QUARTER_FINALS",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537385,
+      "utcDate": "2026-07-11T21:00:00Z",
+      "status": "TIMED",
+      "stage": "QUARTER_FINALS",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537386,
+      "utcDate": "2026-07-12T01:00:00Z",
+      "status": "TIMED",
+      "stage": "QUARTER_FINALS",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537387,
+      "utcDate": "2026-07-14T19:00:00Z",
+      "status": "TIMED",
+      "stage": "SEMI_FINALS",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537388,
+      "utcDate": "2026-07-15T19:00:00Z",
+      "status": "TIMED",
+      "stage": "SEMI_FINALS",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537389,
+      "utcDate": "2026-07-18T21:00:00Z",
+      "status": "TIMED",
+      "stage": "THIRD_PLACE",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    },
+    {
+      "id": 537390,
+      "utcDate": "2026-07-19T19:00:00Z",
+      "status": "TIMED",
+      "stage": "FINAL",
+      "group": null,
+      "groupName": null,
+      "matchday": null,
+      "home": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "away": {
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
+      },
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null
+    }
+  ]
 }
