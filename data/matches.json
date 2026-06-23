@@ -1383,7 +1383,7 @@
     {
       "id": 537412,
       "utcDate": "2026-06-23T23:00:00Z",
-      "status": "LIVE",
+      "status": "PAUSED",
       "stage": "GROUP_STAGE",
       "group": "GROUP_L",
       "groupName": "Group L",
