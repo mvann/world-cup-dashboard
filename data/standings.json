@@ -148,9 +148,9 @@
           "won": 2,
           "draw": 1,
           "lost": 0,
-          "goalsFor": 6,
+          "goalsFor": 7,
           "goalsAgainst": 1,
-          "goalDifference": 5,
+          "goalDifference": 6,
           "points": 7,
           "form": null
         },
@@ -179,8 +179,8 @@
           "draw": 0,
           "lost": 2,
           "goalsFor": 1,
-          "goalsAgainst": 3,
-          "goalDifference": -2,
+          "goalsAgainst": 4,
+          "goalDifference": -3,
           "points": 3,
           "form": null
         },
