@@ -1473,7 +1473,7 @@
     {
       "id": 537338,
       "utcDate": "2026-06-24T19:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
       "groupName": "Group B",
