@@ -437,7 +437,7 @@
       "away": {
         "id": 758,
         "name": "Uruguay",
-        "tla": "URU",
+        "tla": "URY",
         "crest": "https://crests.football-data.org/758.svg"
       },
       "score": {
@@ -1151,7 +1151,7 @@
       "home": {
         "id": 758,
         "name": "Uruguay",
-        "tla": "URU",
+        "tla": "URY",
         "crest": "https://crests.football-data.org/758.svg"
       },
       "away": {
@@ -1443,7 +1443,7 @@
     {
       "id": 537337,
       "utcDate": "2026-06-24T19:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
       "groupName": "Group B",
@@ -1462,7 +1462,7 @@
       },
       "score": {
         "home": 2,
-        "away": 0
+        "away": 1
       },
       "penalties": {
         "home": null,
@@ -1491,7 +1491,7 @@
         "crest": "https://crests.football-data.org/8030.svg"
       },
       "score": {
-        "home": 2,
+        "home": 3,
         "away": 1
       },
       "penalties": {
@@ -1871,7 +1871,7 @@
       "home": {
         "id": 758,
         "name": "Uruguay",
-        "tla": "URU",
+        "tla": "URY",
         "crest": "https://crests.football-data.org/758.svg"
       },
       "away": {
@@ -2229,10 +2229,10 @@
       "groupName": null,
       "matchday": null,
       "home": {
-        "id": 759,
-        "name": "Germany",
-        "tla": "GER",
-        "crest": "https://crests.football-data.org/759.svg"
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
       },
       "away": {
         "id": null,
@@ -2349,10 +2349,10 @@
       "groupName": null,
       "matchday": null,
       "home": {
-        "id": 769,
-        "name": "Mexico",
-        "tla": "MEX",
-        "crest": "https://crests.football-data.org/769.svg"
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
       },
       "away": {
         "id": null,
@@ -2439,10 +2439,10 @@
       "groupName": null,
       "matchday": null,
       "home": {
-        "id": 771,
-        "name": "United States",
-        "tla": "USA",
-        "crest": "https://crests.football-data.org/usa.svg"
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
       },
       "away": {
         "id": null,
@@ -2589,10 +2589,10 @@
       "groupName": null,
       "matchday": null,
       "home": {
-        "id": 762,
-        "name": "Argentina",
-        "tla": "ARG",
-        "crest": "https://crests.football-data.org/762.png"
+        "id": null,
+        "name": "TBD",
+        "tla": null,
+        "crest": null
       },
       "away": {
         "id": null,
