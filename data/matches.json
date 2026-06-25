@@ -81,14 +81,14 @@
         "crest": "https://crests.football-data.org/bosnia.svg"
       },
       "score": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 1
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": null
+      "winner": "DRAW"
     },
     {
       "id": 537345,
