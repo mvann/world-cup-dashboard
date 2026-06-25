@@ -437,7 +437,7 @@
       "away": {
         "id": 758,
         "name": "Uruguay",
-        "tla": "URU",
+        "tla": "URY",
         "crest": "https://crests.football-data.org/758.svg"
       },
       "score": {
@@ -1151,7 +1151,7 @@
       "home": {
         "id": 758,
         "name": "Uruguay",
-        "tla": "URU",
+        "tla": "URY",
         "crest": "https://crests.football-data.org/758.svg"
       },
       "away": {
@@ -1563,7 +1563,7 @@
     {
       "id": 537331,
       "utcDate": "2026-06-25T01:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
       "groupName": "Group A",
@@ -1581,19 +1581,19 @@
         "crest": "https://crests.football-data.org/769.svg"
       },
       "score": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": null
+      "winner": "DRAW"
     },
     {
       "id": 537332,
       "utcDate": "2026-06-25T01:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
       "groupName": "Group A",
@@ -1611,14 +1611,14 @@
         "crest": "https://crests.football-data.org/772.png"
       },
       "score": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": null
+      "winner": "DRAW"
     },
     {
       "id": 537355,
@@ -1871,7 +1871,7 @@
       "home": {
         "id": 758,
         "name": "Uruguay",
-        "tla": "URU",
+        "tla": "URY",
         "crest": "https://crests.football-data.org/758.svg"
       },
       "away": {
