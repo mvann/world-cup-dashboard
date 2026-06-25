@@ -282,8 +282,8 @@
           "won": 2,
           "draw": 1,
           "lost": 0,
-          "goalsFor": 9,
-          "goalsAgainst": 2,
+          "goalsFor": 10,
+          "goalsAgainst": 3,
           "goalDifference": 7,
           "points": 7,
           "form": null
@@ -294,13 +294,13 @@
           "tla": "CIV",
           "crest": "https://crests.football-data.org/787.svg",
           "playedGames": 3,
-          "won": 1,
-          "draw": 1,
+          "won": 2,
+          "draw": 0,
           "lost": 1,
-          "goalsFor": 2,
+          "goalsFor": 3,
           "goalsAgainst": 2,
-          "goalDifference": 0,
-          "points": 4,
+          "goalDifference": 1,
+          "points": 6,
           "form": null
         },
         {
@@ -312,8 +312,8 @@
           "won": 0,
           "draw": 2,
           "lost": 1,
-          "goalsFor": 0,
-          "goalsAgainst": 1,
+          "goalsFor": 1,
+          "goalsAgainst": 2,
           "goalDifference": -1,
           "points": 2,
           "form": null
@@ -325,12 +325,12 @@
           "crest": "https://crests.football-data.org/curacao.svg",
           "playedGames": 3,
           "won": 0,
-          "draw": 2,
-          "lost": 1,
+          "draw": 1,
+          "lost": 2,
           "goalsFor": 1,
-          "goalsAgainst": 7,
-          "goalDifference": -6,
-          "points": 2,
+          "goalsAgainst": 8,
+          "goalDifference": -7,
+          "points": 1,
           "form": null
         }
       ]

@@ -1641,8 +1641,8 @@
         "crest": "https://crests.football-data.org/759.svg"
       },
       "score": {
-        "home": 0,
-        "away": 0
+        "home": 1,
+        "away": 1
       },
       "penalties": {
         "home": null,
@@ -1672,13 +1672,13 @@
       },
       "score": {
         "home": 0,
-        "away": 0
+        "away": 1
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": "DRAW"
+      "winner": "AWAY_TEAM"
     },
     {
       "id": 537361,
