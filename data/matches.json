@@ -81,14 +81,14 @@
         "crest": "https://crests.football-data.org/bosnia.svg"
       },
       "score": {
-        "home": 1,
-        "away": 1
+        "home": null,
+        "away": null
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": "DRAW"
+      "winner": null
     },
     {
       "id": 537345,
@@ -1551,7 +1551,7 @@
         "crest": "https://crests.football-data.org/haiti.svg"
       },
       "score": {
-        "home": 3,
+        "home": 4,
         "away": 2
       },
       "penalties": {
