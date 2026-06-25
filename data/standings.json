@@ -297,9 +297,9 @@
           "won": 2,
           "draw": 0,
           "lost": 1,
-          "goalsFor": 3,
+          "goalsFor": 4,
           "goalsAgainst": 2,
-          "goalDifference": 1,
+          "goalDifference": 2,
           "points": 6,
           "form": null
         },
@@ -328,8 +328,8 @@
           "draw": 1,
           "lost": 2,
           "goalsFor": 1,
-          "goalsAgainst": 8,
-          "goalDifference": -7,
+          "goalsAgainst": 9,
+          "goalDifference": -8,
           "points": 1,
           "form": null
         }
