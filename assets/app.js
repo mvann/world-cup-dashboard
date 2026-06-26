@@ -170,8 +170,32 @@ function knockoutTeamKeys() {
   return set;
 }
 
+// A group whose every group-stage match has finished — its final order (and so
+// its 3rd-placed team's stats) can no longer change.
+function groupComplete(group) {
+  const ms = (state.matches.matches || []).filter((m) => m.groupName === group.name);
+  return ms.length > 0 && ms.every(isFinished);
+}
+
+// 2026 sends the top two of each group PLUS the eight best third-placed teams to
+// the Round of 32. Rank every group's current 3rd by points -> GD -> goals; the
+// top eight take those spots. Only the thirds from finished groups are returned,
+// so we never badge a placing that could still change.
+function bestThirdKeys() {
+  const thirds = [];
+  for (const g of (state.standings.groups || [])) {
+    const r = (g.standings || [])[2];
+    if (r) thirds.push({ r, done: groupComplete(g) });
+  }
+  thirds.sort((a, b) =>
+    (b.r.points - a.r.points) ||
+    (b.r.goalDifference - a.r.goalDifference) ||
+    (b.r.goalsFor - a.r.goalsFor));
+  return new Set(thirds.slice(0, 8).filter((t) => t.done).map((t) => t.r.tla || t.r.team));
+}
+
 function isThroughKey(group, key) {
-  return clinchedTeams(group).has(key) || knockoutTeamKeys().has(key);
+  return clinchedTeams(group).has(key) || knockoutTeamKeys().has(key) || bestThirdKeys().has(key);
 }
 
 // One group's table. currentKey (optional) highlights that team's row — used by
@@ -195,6 +219,7 @@ function groupTableEl(g, currentKey) {
   const keys = (Array.isArray(currentKey) ? currentKey : [currentKey]).filter(Boolean);
   const through = clinchedTeams(g);
   const ko = knockoutTeamKeys();
+  const thirds = bestThirdKeys();
   const tbody = el("tbody");
   (g.standings || []).forEach((row, i) => {
     const key = row.tla || row.team;
@@ -204,8 +229,8 @@ function groupTableEl(g, currentKey) {
       el("td", { class: "pos", text: String(row.position ?? i + 1) }),
       el("td", { class: "team-cell" }, [
         teamLinkEl(key, [crestImg(row), el("span", { class: "name", text: row.team })]),
-        (through.has(key) || ko.has(key))
-          ? el("span", { class: "qual-badge", title: "Clinched a knockout spot", "aria-label": "Qualified", text: "✓" })
+        (through.has(key) || ko.has(key) || thirds.has(key))
+          ? el("span", { class: "qual-badge", title: "In a knockout-qualifying spot", "aria-label": "Qualified", text: "✓" })
           : null,
       ]),
       el("td", { text: String(row.playedGames) }),
@@ -234,9 +259,9 @@ function renderStandings() {
   root.appendChild(el("div", { class: "legend" }, [
     el("span", { class: "swatch" }),
     el("span", {}, [
-      "Top two of each group advance. ",
+      "The top two of each group, plus the eight best third-placed teams, advance. ",
       el("span", { class: "qual-badge", text: "✓" }),
-      " marks a team that has clinched a knockout spot.",
+      " marks a team in a qualifying spot.",
     ]),
   ]));
 }
