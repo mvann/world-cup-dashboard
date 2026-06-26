@@ -165,44 +165,33 @@ function groupComplete(group) {
   return ms.length > 0 && ms.every(isFinished);
 }
 
-// True once every group-stage match has finished.
-function groupStageComplete() {
-  const gs = (state.matches.matches || []).filter((m) => m.stage === "GROUP_STAGE");
-  return gs.length > 0 && gs.every(isFinished);
-}
-
-// 2026 sends the top two of each group PLUS the eight best third-placed teams to
-// the Round of 32. The eight can only be ranked once EVERY group has finished
-// (all 12 thirds are final) — so until the whole group stage is complete we name
-// no best-thirds at all. Otherwise a third from an early group could be shown as
-// through, then bumped out when the later groups settle. Once complete, rank the
-// 12 thirds by points -> GD -> goals and take the top eight.
-function bestThirdKeys() {
-  if (!groupStageComplete()) return new Set();
-  const thirds = [];
-  for (const g of (state.standings.groups || [])) {
-    const r = (g.standings || [])[2];
-    if (r) thirds.push(r);
+// Teams the data source has placed into a knockout match — the source of truth
+// for who's through, including the eight best third-placed teams (which depend on
+// cross-group tiebreakers the source resolves itself).
+function knockoutTeamKeys() {
+  const set = new Set();
+  for (const m of (state.matches.matches || [])) {
+    if (m.stage === "GROUP_STAGE") continue;
+    const h = keyOfTeam(m.home), a = keyOfTeam(m.away);
+    if (h) set.add(h);
+    if (a) set.add(a);
   }
-  thirds.sort((a, b) =>
-    (b.points - a.points) ||
-    (b.goalDifference - a.goalDifference) ||
-    (b.goalsFor - a.goalsFor));
-  return new Set(thirds.slice(0, 8).map((r) => r.tla || r.team));
+  return set;
 }
 
-// Every team in a group that's through to the knockouts: clinched a top-2 spot, a
-// qualifying best-third, or — once the group is finished — simply its top two
-// (positions can be tied on points, which the clinch math treats conservatively,
-// so finished groups are settled by position).
+// Every team in a group that's through to the knockouts. The data source is the
+// source of truth (only it can name the best third-placed teams). On top of that
+// we add the cases derivable with certainty: a clinched top-2 spot, and — once a
+// group is finished — its top two (which always advance, and may be tied on points
+// where the clinch math is conservative).
 function throughKeysForGroup(group) {
+  const placed = knockoutTeamKeys();
   const clinched = clinchedTeams(group);
-  const thirds = bestThirdKeys();
   const done = groupComplete(group);
   const set = new Set();
   (group.standings || []).forEach((r, i) => {
     const key = r.tla || r.team;
-    if (clinched.has(key) || thirds.has(key) || (done && i < 2)) set.add(key);
+    if (placed.has(key) || clinched.has(key) || (done && i < 2)) set.add(key);
   });
   return set;
 }
