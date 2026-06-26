@@ -194,8 +194,25 @@ function bestThirdKeys() {
   return new Set(thirds.slice(0, 8).filter((t) => t.done).map((t) => t.r.tla || t.r.team));
 }
 
+// Every team in a group that's through to the knockouts: clinched a top-2 spot,
+// already drawn into the bracket, a qualifying best-third, or — once the group is
+// finished — simply its top two (positions can be tied on points, which the
+// clinch math treats conservatively, so finished groups are settled by position).
+function throughKeysForGroup(group) {
+  const clinched = clinchedTeams(group);
+  const ko = knockoutTeamKeys();
+  const thirds = bestThirdKeys();
+  const done = groupComplete(group);
+  const set = new Set();
+  (group.standings || []).forEach((r, i) => {
+    const key = r.tla || r.team;
+    if (clinched.has(key) || ko.has(key) || thirds.has(key) || (done && i < 2)) set.add(key);
+  });
+  return set;
+}
+
 function isThroughKey(group, key) {
-  return clinchedTeams(group).has(key) || knockoutTeamKeys().has(key) || bestThirdKeys().has(key);
+  return throughKeysForGroup(group).has(key);
 }
 
 // One group's table. currentKey (optional) highlights that team's row — used by
@@ -217,9 +234,7 @@ function groupTableEl(g, currentKey) {
     el("th", { text: "Pts" }),
   ]);
   const keys = (Array.isArray(currentKey) ? currentKey : [currentKey]).filter(Boolean);
-  const through = clinchedTeams(g);
-  const ko = knockoutTeamKeys();
-  const thirds = bestThirdKeys();
+  const throughSet = throughKeysForGroup(g);
   const tbody = el("tbody");
   (g.standings || []).forEach((row, i) => {
     const key = row.tla || row.team;
@@ -229,7 +244,7 @@ function groupTableEl(g, currentKey) {
       el("td", { class: "pos", text: String(row.position ?? i + 1) }),
       el("td", { class: "team-cell" }, [
         teamLinkEl(key, [crestImg(row), el("span", { class: "name", text: row.team })]),
-        (through.has(key) || ko.has(key) || thirds.has(key))
+        throughSet.has(key)
           ? el("span", { class: "qual-badge", title: "In a knockout-qualifying spot", "aria-label": "Qualified", text: "✓" })
           : null,
       ]),

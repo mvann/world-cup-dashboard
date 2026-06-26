@@ -33,7 +33,7 @@ html { background: var(--accent); scrollbar-gutter: stable; }
 /* Column flex + min-height pins the footer to the bottom on short pages. Body is
    yellow so the whole backdrop — overscroll (top + bottom) and every safe area —
    reads yellow; the paper reading surface lives on <main>. */
-body { background: var(--accent); min-height: 100vh; display: flex; flex-direction: column; }
+body { position: relative; background: var(--accent); min-height: 100vh; display: flex; flex-direction: column; }
 
 html, body {
   margin: 0;
@@ -48,11 +48,14 @@ html, body {
   font-variant-numeric: tabular-nums;
 }
 
-/* Paper grain: a fixed, non-interactive monochrome-noise layer multiplied over
-   the whole page. Tweak --grain (opacity) to taste. */
+/* Paper grain: a non-interactive monochrome-noise layer multiplied over the page.
+   Positioned absolute (not fixed) so it spans the full document height and scrolls
+   with the content like the texture of a sheet of paper. The yellow masthead/tabs
+   sit above it (higher z-index), so the grain only shows on the paper surface.
+   Tweak --grain (opacity) to taste. */
 body::after {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: 9999;
   pointer-events: none;
