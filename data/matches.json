@@ -1803,7 +1803,7 @@
     {
       "id": 537395,
       "utcDate": "2026-06-26T19:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
       "groupName": "Group I",
@@ -1822,7 +1822,7 @@
       },
       "score": {
         "home": 1,
-        "away": 3
+        "away": 4
       },
       "penalties": {
         "home": null,
@@ -1833,7 +1833,7 @@
     {
       "id": 537396,
       "utcDate": "2026-06-26T19:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
       "groupName": "Group I",
