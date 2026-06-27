@@ -2289,10 +2289,10 @@
       "groupName": null,
       "matchday": null,
       "home": {
-        "id": null,
-        "name": "TBD",
-        "tla": null,
-        "crest": null
+        "id": 1935,
+        "name": "Ivory Coast",
+        "tla": "CIV",
+        "crest": "https://crests.football-data.org/787.svg"
       },
       "away": {
         "id": null,
