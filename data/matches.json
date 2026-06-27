@@ -1923,7 +1923,7 @@
     {
       "id": 537367,
       "utcDate": "2026-06-27T03:00:00Z",
-      "status": "LIVE",
+      "status": "IN_PLAY",
       "stage": "GROUP_STAGE",
       "group": "GROUP_G",
       "groupName": "Group G",
@@ -1942,13 +1942,13 @@
       },
       "score": {
         "home": 0,
-        "away": 0
+        "away": 3
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": "DRAW"
+      "winner": "AWAY_TEAM"
     },
     {
       "id": 537368,
