@@ -437,7 +437,7 @@
       "away": {
         "id": 758,
         "name": "Uruguay",
-        "tla": "URY",
+        "tla": "URU",
         "crest": "https://crests.football-data.org/758.svg"
       },
       "score": {
@@ -1151,7 +1151,7 @@
       "home": {
         "id": 758,
         "name": "Uruguay",
-        "tla": "URY",
+        "tla": "URU",
         "crest": "https://crests.football-data.org/758.svg"
       },
       "away": {
@@ -1871,7 +1871,7 @@
       "home": {
         "id": 758,
         "name": "Uruguay",
-        "tla": "URY",
+        "tla": "URU",
         "crest": "https://crests.football-data.org/758.svg"
       },
       "away": {
@@ -2091,14 +2091,14 @@
         "crest": "https://crests.football-data.org/8070.png"
       },
       "score": {
-        "home": 0,
+        "home": 1,
         "away": 1
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": "AWAY_TEAM"
+      "winner": "DRAW"
     },
     {
       "id": 537401,
