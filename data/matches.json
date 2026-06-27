@@ -1863,7 +1863,7 @@
     {
       "id": 537373,
       "utcDate": "2026-06-27T00:00:00Z",
-      "status": "LIVE",
+      "status": "IN_PLAY",
       "stage": "GROUP_STAGE",
       "group": "GROUP_H",
       "groupName": "Group H",
@@ -1882,18 +1882,18 @@
       },
       "score": {
         "home": 0,
-        "away": 0
+        "away": 1
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": "DRAW"
+      "winner": "AWAY_TEAM"
     },
     {
       "id": 537374,
       "utcDate": "2026-06-27T00:00:00Z",
-      "status": "LIVE",
+      "status": "IN_PLAY",
       "stage": "GROUP_STAGE",
       "group": "GROUP_H",
       "groupName": "Group H",
