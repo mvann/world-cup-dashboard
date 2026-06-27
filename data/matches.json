@@ -1923,7 +1923,7 @@
     {
       "id": 537367,
       "utcDate": "2026-06-27T03:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "GROUP_G",
       "groupName": "Group G",
@@ -1941,8 +1941,8 @@
         "crest": "https://crests.football-data.org/805.svg"
       },
       "score": {
-        "home": 0,
-        "away": 3
+        "home": 1,
+        "away": 5
       },
       "penalties": {
         "home": null,
@@ -1953,7 +1953,7 @@
     {
       "id": 537368,
       "utcDate": "2026-06-27T03:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "GROUP_G",
       "groupName": "Group G",
