@@ -1803,7 +1803,7 @@
     {
       "id": 537395,
       "utcDate": "2026-06-26T19:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
       "groupName": "Group I",
@@ -1821,19 +1821,19 @@
         "crest": "https://crests.football-data.org/773.svg"
       },
       "score": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 4
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": null
+      "winner": "AWAY_TEAM"
     },
     {
       "id": 537396,
       "utcDate": "2026-06-26T19:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
       "groupName": "Group I",
@@ -1851,14 +1851,14 @@
         "crest": "https://crests.football-data.org/iraq.svg"
       },
       "score": {
-        "home": null,
-        "away": null
+        "home": 5,
+        "away": 0
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": null
+      "winner": "HOME_TEAM"
     },
     {
       "id": 537373,
@@ -1972,13 +1972,13 @@
       },
       "score": {
         "home": 1,
-        "away": 2
+        "away": 1
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": "AWAY_TEAM"
+      "winner": "DRAW"
     },
     {
       "id": 537413,
@@ -2002,13 +2002,13 @@
       },
       "score": {
         "home": 0,
-        "away": 0
+        "away": 2
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": "DRAW"
+      "winner": "AWAY_TEAM"
     },
     {
       "id": 537414,
@@ -2289,10 +2289,10 @@
       "groupName": null,
       "matchday": null,
       "home": {
-        "id": null,
-        "name": "TBD",
-        "tla": null,
-        "crest": null
+        "id": 1935,
+        "name": "Ivory Coast",
+        "tla": "CIV",
+        "crest": "https://crests.football-data.org/787.svg"
       },
       "away": {
         "id": null,
