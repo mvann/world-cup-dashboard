@@ -2163,7 +2163,7 @@
     {
       "id": 537417,
       "utcDate": "2026-06-28T19:00:00Z",
-      "status": "IN_PLAY",
+      "status": "PAUSED",
       "stage": "LAST_32",
       "group": null,
       "groupName": null,
