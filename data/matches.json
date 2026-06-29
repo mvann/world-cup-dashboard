@@ -2241,14 +2241,14 @@
         "crest": "https://crests.football-data.org/761.svg"
       },
       "score": {
-        "home": 1,
+        "home": 2,
         "away": 1
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": "DRAW"
+      "winner": "HOME_TEAM"
     },
     {
       "id": 537418,
