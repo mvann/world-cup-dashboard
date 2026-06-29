@@ -2223,7 +2223,7 @@
     {
       "id": 537415,
       "utcDate": "2026-06-29T20:30:00Z",
-      "status": "PAUSED",
+      "status": "FINISHED",
       "stage": "LAST_32",
       "group": null,
       "groupName": null,
@@ -2241,14 +2241,14 @@
         "crest": "https://crests.football-data.org/761.svg"
       },
       "score": {
-        "home": 2,
-        "away": 1
+        "home": 5,
+        "away": 6
       },
       "penalties": {
-        "home": null,
-        "away": null
+        "home": 5,
+        "away": 5
       },
-      "winner": "HOME_TEAM"
+      "winner": null
     },
     {
       "id": 537418,
