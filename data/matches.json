@@ -2649,10 +2649,10 @@
       "groupName": null,
       "matchday": null,
       "home": {
-        "id": null,
-        "name": "TBD",
-        "tla": null,
-        "crest": null
+        "id": 828,
+        "name": "Canada",
+        "tla": "CAN",
+        "crest": "https://crests.football-data.org/canada.svg"
       },
       "away": {
         "id": null,
