@@ -2245,10 +2245,10 @@
         "away": 5
       },
       "penalties": {
-        "home": 4,
+        "home": 3,
         "away": 4
       },
-      "winner": null
+      "winner": "AWAY_TEAM"
     },
     {
       "id": 537418,
@@ -2271,14 +2271,14 @@
         "crest": "https://crests.football-data.org/morocco.svg"
       },
       "score": {
-        "home": 4,
+        "home": 3,
         "away": 4
       },
       "penalties": {
-        "home": 3,
+        "home": 2,
         "away": 3
       },
-      "winner": null
+      "winner": "AWAY_TEAM"
     },
     {
       "id": 537424,
@@ -2655,10 +2655,10 @@
         "crest": "https://crests.football-data.org/canada.svg"
       },
       "away": {
-        "id": null,
-        "name": "TBD",
-        "tla": null,
-        "crest": null
+        "id": 815,
+        "name": "Morocco",
+        "tla": "MAR",
+        "crest": "https://crests.football-data.org/morocco.svg"
       },
       "score": {
         "home": null,
@@ -2679,10 +2679,10 @@
       "groupName": null,
       "matchday": null,
       "home": {
-        "id": null,
-        "name": "TBD",
-        "tla": null,
-        "crest": null
+        "id": 761,
+        "name": "Paraguay",
+        "tla": "PAR",
+        "crest": "https://crests.football-data.org/761.svg"
       },
       "away": {
         "id": null,
@@ -2709,10 +2709,10 @@
       "groupName": null,
       "matchday": null,
       "home": {
-        "id": null,
-        "name": "TBD",
-        "tla": null,
-        "crest": null
+        "id": 764,
+        "name": "Brazil",
+        "tla": "BRA",
+        "crest": "https://crests.football-data.org/764.svg"
       },
       "away": {
         "id": null,
