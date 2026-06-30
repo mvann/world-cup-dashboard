@@ -81,6 +81,9 @@ function isLive(m) { return LIVE_STATUSES.has(m.status); }
 function isFinished(m) { return FINISHED_STATUSES.has(m.status); }
 function hasScore(m) { return m.score && m.score.home != null && m.score.away != null; }
 function penScore(m) { const p = m && m.penalties; return p && p.home != null && p.away != null ? p : null; }
+// football-data returns winner as "HOME_TEAM" / "AWAY_TEAM" / "DRAW"; normalise
+// to "HOME" / "AWAY" / "DRAW" / "".
+function winnerSide(m) { return (m && m.winner ? m.winner : "").replace("_TEAM", ""); }
 
 function fmtDay(d) {
   return d.toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" });
@@ -347,8 +350,8 @@ function renderMatchRow(m) {
   else if (m.utcDate) timeContent = el("span", { text: fmtTime(new Date(m.utcDate)) });
   else timeContent = el("span", { text: "TBD" });
 
-  const homeWin = m.winner === "HOME";
-  const awayWin = m.winner === "AWAY";
+  const homeWin = winnerSide(m) === "HOME";
+  const awayWin = winnerSide(m) === "AWAY";
 
   const pens = penScore(m);
   const scoreEl = showScore
@@ -401,8 +404,8 @@ function renderBracket() {
 
   // Champion banner above the tree, once the final is decided.
   const finalMatch = stageMatches("FINAL")[0];
-  if (finalMatch && isFinished(finalMatch) && finalMatch.winner && finalMatch.winner !== "DRAW") {
-    const champ = finalMatch.winner === "HOME" ? finalMatch.home : finalMatch.away;
+  if (finalMatch && isFinished(finalMatch) && (winnerSide(finalMatch) === "HOME" || winnerSide(finalMatch) === "AWAY")) {
+    const champ = winnerSide(finalMatch) === "HOME" ? finalMatch.home : finalMatch.away;
     root.appendChild(el("div", { class: "champion-card" }, [
       el("div", { class: "trophy", text: "🏆" }),
       el("div", { class: "label", text: "Champions" }),
@@ -444,8 +447,8 @@ function renderBracketMatch(m, isFinal) {
     class: cls, "data-game": m.id, role: "link", tabindex: "0",
     "aria-label": `View match: ${m.home.name} versus ${m.away.name}`,
   }, [
-    bracketTeamRow(m.home, showScore ? m.score.home : null, m.winner === "HOME", pens ? pens.home : null),
-    bracketTeamRow(m.away, showScore ? m.score.away : null, m.winner === "AWAY", pens ? pens.away : null),
+    bracketTeamRow(m.home, showScore ? m.score.home : null, winnerSide(m) === "HOME", pens ? pens.home : null),
+    bracketTeamRow(m.away, showScore ? m.score.away : null, winnerSide(m) === "AWAY", pens ? pens.away : null),
   ]);
 }
 
@@ -575,8 +578,8 @@ function renderGameView(id) {
     el("span", { class: "game-score", text: showScore ? String(score) : "" }),
   ]);
   root.appendChild(el("div", { class: "game-head" }, [
-    teamRow(m.home, m.score.home, m.winner === "HOME"),
-    teamRow(m.away, m.score.away, m.winner === "AWAY"),
+    teamRow(m.home, m.score.home, winnerSide(m) === "HOME"),
+    teamRow(m.away, m.score.away, winnerSide(m) === "AWAY"),
   ]));
 
   const pens = penScore(m);
