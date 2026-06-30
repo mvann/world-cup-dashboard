@@ -1,8 +1,8 @@
 {
-  "updated": "2026-06-30T20:30:04Z",
+  "updated": "2026-06-30T21:10:02Z",
   "competition": "World Cup",
   "season": "2026",
   "source": "football-data.org",
-  "ok": true,
-  "note": "12 groups, 104 matches"
+  "ok": false,
+  "note": "Fetch failed: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
 }
