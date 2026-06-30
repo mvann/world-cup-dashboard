@@ -84,6 +84,13 @@ function penScore(m) { const p = m && m.penalties; return p && p.home != null &&
 // football-data returns winner as "HOME_TEAM" / "AWAY_TEAM" / "DRAW"; normalise
 // to "HOME" / "AWAY" / "DRAW" / "".
 function winnerSide(m) { return (m && m.winner ? m.winner : "").replace("_TEAM", ""); }
+// Key of the team that won a match (the one that advances), or null if undecided.
+function winnerKey(m) {
+  const s = winnerSide(m);
+  if (s === "HOME") return keyOfTeam(m.home);
+  if (s === "AWAY") return keyOfTeam(m.away);
+  return null;
+}
 
 function fmtDay(d) {
   return d.toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" });
@@ -387,6 +394,37 @@ function stageTitle(key) {
   return s ? s.title : null;
 }
 
+// Order one knockout round so game j sits directly between the two previous-round
+// games that feed it. A game holds the winners of two prior games, so we find a
+// feeder by matching teams and place the game above that pair (prev slot s ->
+// this slot floor(s/2)). Games whose feeders aren't decided yet (both teams TBD)
+// fall back into the remaining slots in id order, and snap into place once a
+// result comes in. This derives the bracket structure from the data with no
+// hard-coded map.
+function seedRound(roundMatches, prevOrdered) {
+  const n = roundMatches.length;
+  const slots = new Array(n).fill(null);
+  const prevWinners = prevOrdered.map(winnerKey);
+  const leftovers = [];
+  for (const M of roundMatches) {
+    const keys = [keyOfTeam(M.home), keyOfTeam(M.away)].filter(Boolean);
+    let placed = false;
+    if (keys.length) {
+      for (let s = 0; s < prevWinners.length; s++) {
+        if (prevWinners[s] && keys.includes(prevWinners[s])) {
+          const j = Math.floor(s / 2);
+          if (j < n && slots[j] == null) { slots[j] = M; placed = true; }
+          break;
+        }
+      }
+    }
+    if (!placed) leftovers.push(M);
+  }
+  let u = 0;
+  for (let j = 0; j < n; j++) if (slots[j] == null) slots[j] = leftovers[u++] || null;
+  return slots;
+}
+
 function renderBracket() {
   const root = document.getElementById("bracket");
   root.innerHTML = "";
@@ -397,13 +435,23 @@ function renderBracket() {
     if (!byStage.has(m.stage)) byStage.set(m.stage, []);
     byStage.get(m.stage).push(m);
   }
+  // Anchor by id (stable); later rounds get reordered to line up with feeders.
   const stageMatches = (key) =>
-    (byStage.get(key) || []).slice().sort(
-      (a, b) => (a.utcDate || "").localeCompare(b.utcDate || "") || (a.id || 0) - (b.id || 0)
-    );
+    (byStage.get(key) || []).slice().sort((a, b) => (a.id || 0) - (b.id || 0));
+
+  // Round of 32 anchors the tree; each later round is ordered from the one before
+  // it so winners flow straight into the game above their two feeders.
+  const ordered = {
+    LAST_32: stageMatches("LAST_32"),
+    THIRD_PLACE: stageMatches("THIRD_PLACE"),
+    FINAL: stageMatches("FINAL"),
+  };
+  ordered.LAST_16 = seedRound(stageMatches("LAST_16"), ordered.LAST_32);
+  ordered.QUARTER_FINALS = seedRound(stageMatches("QUARTER_FINALS"), ordered.LAST_16);
+  ordered.SEMI_FINALS = seedRound(stageMatches("SEMI_FINALS"), ordered.QUARTER_FINALS);
 
   // Champion banner above the tree, once the final is decided.
-  const finalMatch = stageMatches("FINAL")[0];
+  const finalMatch = ordered.FINAL[0];
   if (finalMatch && isFinished(finalMatch) && (winnerSide(finalMatch) === "HOME" || winnerSide(finalMatch) === "AWAY")) {
     const champ = winnerSide(finalMatch) === "HOME" ? finalMatch.home : finalMatch.away;
     root.appendChild(el("div", { class: "champion-card" }, [
@@ -419,7 +467,7 @@ function renderBracket() {
   const grid = el("div", { class: "bracket-grid" });
   for (const stage of KNOCKOUT_STAGES) {
     const col = el("div", { class: "bracket-col" });
-    const matches = stageMatches(stage.key);
+    const matches = ordered[stage.key] || [];
     for (let k = 0; k < stage.count; k++) {
       const label = stage.count > 1 ? `${stage.title} · ${k + 1}` : stage.title;
       col.appendChild(bracketSlot(matches[k], label, stage.key === "FINAL"));
