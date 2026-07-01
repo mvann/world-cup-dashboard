@@ -2391,14 +2391,14 @@
         "crest": "https://crests.football-data.org/congo_dr.svg"
       },
       "score": {
-        "home": 0,
+        "home": 2,
         "away": 1
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": "AWAY_TEAM"
+      "winner": "HOME_TEAM"
     },
     {
       "id": 537422,
