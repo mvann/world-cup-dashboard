@@ -2421,14 +2421,14 @@
         "crest": "https://crests.football-data.org/senegal.svg"
       },
       "score": {
-        "home": 0,
+        "home": 2,
         "away": 2
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": "AWAY_TEAM"
+      "winner": "DRAW"
     },
     {
       "id": 537421,
