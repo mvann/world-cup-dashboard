@@ -2685,10 +2685,10 @@
         "crest": "https://crests.football-data.org/761.svg"
       },
       "away": {
-        "id": null,
-        "name": "TBD",
-        "tla": null,
-        "crest": null
+        "id": 773,
+        "name": "France",
+        "tla": "FRA",
+        "crest": "https://crests.football-data.org/773.svg"
       },
       "score": {
         "home": null,
@@ -2715,10 +2715,10 @@
         "crest": "https://crests.football-data.org/764.svg"
       },
       "away": {
-        "id": null,
-        "name": "TBD",
-        "tla": null,
-        "crest": null
+        "id": 8872,
+        "name": "Norway",
+        "tla": "NOR",
+        "crest": "https://crests.football-data.org/813.svg"
       },
       "score": {
         "home": null,
