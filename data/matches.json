@@ -2343,7 +2343,7 @@
     {
       "id": 537425,
       "utcDate": "2026-07-01T01:00:00Z",
-      "status": "IN_PLAY",
+      "status": "LIVE",
       "stage": "LAST_32",
       "group": null,
       "groupName": null,
