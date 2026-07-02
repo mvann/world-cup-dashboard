@@ -2433,7 +2433,7 @@
     {
       "id": 537421,
       "utcDate": "2026-07-02T00:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "LAST_32",
       "group": null,
       "groupName": null,
