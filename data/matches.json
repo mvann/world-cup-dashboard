@@ -2493,7 +2493,7 @@
     {
       "id": 537419,
       "utcDate": "2026-07-02T23:00:00Z",
-      "status": "PAUSED",
+      "status": "IN_PLAY",
       "stage": "LAST_32",
       "group": null,
       "groupName": null,
@@ -2511,8 +2511,8 @@
         "crest": "https://crests.football-data.org/799.svg"
       },
       "score": {
-        "home": 0,
-        "away": 0
+        "home": 1,
+        "away": 1
       },
       "penalties": {
         "home": null,
