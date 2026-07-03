@@ -2583,7 +2583,7 @@
     {
       "id": 537427,
       "utcDate": "2026-07-03T22:00:00Z",
-      "status": "PAUSED",
+      "status": "IN_PLAY",
       "stage": "LAST_32",
       "group": null,
       "groupName": null,
@@ -2602,13 +2602,13 @@
       },
       "score": {
         "home": 1,
-        "away": 0
+        "away": 1
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": "HOME_TEAM"
+      "winner": "DRAW"
     },
     {
       "id": 537430,
