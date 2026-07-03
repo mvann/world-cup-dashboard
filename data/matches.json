@@ -2571,14 +2571,14 @@
         "crest": "https://crests.football-data.org/825.svg"
       },
       "score": {
-        "home": 0,
+        "home": 1,
         "away": 1
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": "AWAY_TEAM"
+      "winner": "DRAW"
     },
     {
       "id": 537427,
