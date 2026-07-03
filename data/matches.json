@@ -2541,14 +2541,14 @@
         "crest": "https://crests.football-data.org/algeria.svg"
       },
       "score": {
-        "home": 0,
+        "home": 2,
         "away": 0
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": "DRAW"
+      "winner": "HOME_TEAM"
     },
     {
       "id": 537428,
