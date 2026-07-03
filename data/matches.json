@@ -2601,14 +2601,14 @@
         "crest": "https://crests.football-data.org/cape_verde.svg"
       },
       "score": {
-        "home": 0,
+        "home": 1,
         "away": 0
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": "DRAW"
+      "winner": "HOME_TEAM"
     },
     {
       "id": 537430,
