@@ -2643,7 +2643,7 @@
     {
       "id": 537376,
       "utcDate": "2026-07-04T17:00:00Z",
-      "status": "IN_PLAY",
+      "status": "PAUSED",
       "stage": "LAST_16",
       "group": null,
       "groupName": null,
