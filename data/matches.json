@@ -2703,7 +2703,7 @@
     {
       "id": 537377,
       "utcDate": "2026-07-05T20:00:00Z",
-      "status": "LIVE",
+      "status": "FINISHED",
       "stage": "LAST_16",
       "group": null,
       "groupName": null,
@@ -2721,7 +2721,7 @@
         "crest": "https://crests.football-data.org/813.svg"
       },
       "score": {
-        "home": 0,
+        "home": 1,
         "away": 2
       },
       "penalties": {
