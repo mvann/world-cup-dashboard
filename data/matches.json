@@ -2889,16 +2889,16 @@
       "groupName": null,
       "matchday": null,
       "home": {
-        "id": null,
-        "name": "TBD",
-        "tla": null,
-        "crest": null
+        "id": 773,
+        "name": "France",
+        "tla": "FRA",
+        "crest": "https://crests.football-data.org/773.svg"
       },
       "away": {
-        "id": null,
-        "name": "TBD",
-        "tla": null,
-        "crest": null
+        "id": 815,
+        "name": "Morocco",
+        "tla": "MAR",
+        "crest": "https://crests.football-data.org/morocco.svg"
       },
       "score": {
         "home": null,
