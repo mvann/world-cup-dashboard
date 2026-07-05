@@ -2722,13 +2722,13 @@
       },
       "score": {
         "home": 0,
-        "away": 0
+        "away": 2
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": "DRAW"
+      "winner": "AWAY_TEAM"
     },
     {
       "id": 537378,
