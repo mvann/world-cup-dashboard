@@ -2733,7 +2733,7 @@
     {
       "id": 537378,
       "utcDate": "2026-07-06T01:00:00Z",
-      "status": "2026-07-06 01:00:00Z",
+      "status": "TIMED",
       "stage": "LAST_16",
       "group": null,
       "groupName": null,
