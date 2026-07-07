@@ -2793,7 +2793,7 @@
     {
       "id": 537380,
       "utcDate": "2026-07-07T00:00:00Z",
-      "status": "PAUSED",
+      "status": "IN_PLAY",
       "stage": "LAST_16",
       "group": null,
       "groupName": null,
@@ -2812,7 +2812,7 @@
       },
       "score": {
         "home": 1,
-        "away": 2
+        "away": 3
       },
       "penalties": {
         "home": null,
