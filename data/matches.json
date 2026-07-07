@@ -2823,7 +2823,7 @@
     {
       "id": 537381,
       "utcDate": "2026-07-07T16:00:00Z",
-      "status": "LIVE",
+      "status": "IN_PLAY",
       "stage": "LAST_16",
       "group": null,
       "groupName": null,
@@ -2842,7 +2842,7 @@
       },
       "score": {
         "home": 0,
-        "away": 1
+        "away": 2
       },
       "penalties": {
         "home": null,
