@@ -2793,7 +2793,7 @@
     {
       "id": 537380,
       "utcDate": "2026-07-07T00:00:00Z",
-      "status": "LIVE",
+      "status": "PAUSED",
       "stage": "LAST_16",
       "group": null,
       "groupName": null,
@@ -2811,14 +2811,14 @@
         "crest": "https://crests.football-data.org/805.svg"
       },
       "score": {
-        "home": 0,
-        "away": 0
+        "home": 1,
+        "away": 2
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": "DRAW"
+      "winner": "AWAY_TEAM"
     },
     {
       "id": 537381,
