@@ -2875,10 +2875,10 @@
         "away": 3
       },
       "penalties": {
-        "home": 3,
+        "home": 4,
         "away": 3
       },
-      "winner": null
+      "winner": "HOME_TEAM"
     },
     {
       "id": 537383,
@@ -2979,16 +2979,16 @@
       "groupName": null,
       "matchday": null,
       "home": {
-        "id": null,
-        "name": "TBD",
-        "tla": null,
-        "crest": null
+        "id": 762,
+        "name": "Argentina",
+        "tla": "ARG",
+        "crest": "https://crests.football-data.org/762.png"
       },
       "away": {
-        "id": null,
-        "name": "TBD",
-        "tla": null,
-        "crest": null
+        "id": 788,
+        "name": "Switzerland",
+        "tla": "SUI",
+        "crest": "https://crests.football-data.org/788.svg"
       },
       "score": {
         "home": null,
