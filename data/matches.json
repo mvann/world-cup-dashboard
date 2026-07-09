@@ -2883,7 +2883,7 @@
     {
       "id": 537383,
       "utcDate": "2026-07-09T20:00:00Z",
-      "status": "IN_PLAY",
+      "status": "PAUSED",
       "stage": "QUARTER_FINALS",
       "group": null,
       "groupName": null,
