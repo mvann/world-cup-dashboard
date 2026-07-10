@@ -2913,7 +2913,7 @@
     {
       "id": 537384,
       "utcDate": "2026-07-10T19:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "stage": "QUARTER_FINALS",
       "group": null,
       "groupName": null,
@@ -2931,14 +2931,14 @@
         "crest": "https://crests.football-data.org/805.svg"
       },
       "score": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": null
+      "winner": "DRAW"
     },
     {
       "id": 537385,
