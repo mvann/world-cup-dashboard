@@ -2932,13 +2932,13 @@
       },
       "score": {
         "home": 1,
-        "away": 0
+        "away": 1
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": "HOME_TEAM"
+      "winner": "DRAW"
     },
     {
       "id": 537385,
