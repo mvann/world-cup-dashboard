@@ -2973,7 +2973,7 @@
     {
       "id": 537386,
       "utcDate": "2026-07-12T01:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "QUARTER_FINALS",
       "group": null,
       "groupName": null,
@@ -2991,7 +2991,7 @@
         "crest": "https://crests.football-data.org/788.svg"
       },
       "score": {
-        "home": 2,
+        "home": 3,
         "away": 1
       },
       "penalties": {
