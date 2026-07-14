@@ -3003,7 +3003,7 @@
     {
       "id": 537387,
       "utcDate": "2026-07-14T19:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "stage": "SEMI_FINALS",
       "group": null,
       "groupName": null,
@@ -3021,14 +3021,14 @@
         "crest": "https://crests.football-data.org/760.svg"
       },
       "score": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 1
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": null
+      "winner": "AWAY_TEAM"
     },
     {
       "id": 537388,
