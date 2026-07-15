@@ -3033,7 +3033,7 @@
     {
       "id": 537388,
       "utcDate": "2026-07-15T19:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "stage": "SEMI_FINALS",
       "group": null,
       "groupName": null,
@@ -3052,13 +3052,13 @@
       },
       "score": {
         "home": 1,
-        "away": 0
+        "away": 2
       },
       "penalties": {
         "home": null,
         "away": null
       },
-      "winner": "HOME_TEAM"
+      "winner": "AWAY_TEAM"
     },
     {
       "id": 537389,
