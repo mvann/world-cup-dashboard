@@ -3075,10 +3075,10 @@
         "crest": "https://crests.football-data.org/773.svg"
       },
       "away": {
-        "id": null,
-        "name": "TBD",
-        "tla": null,
-        "crest": null
+        "id": 770,
+        "name": "England",
+        "tla": "ENG",
+        "crest": "https://crests.football-data.org/770.svg"
       },
       "score": {
         "home": null,
@@ -3105,10 +3105,10 @@
         "crest": "https://crests.football-data.org/760.svg"
       },
       "away": {
-        "id": null,
-        "name": "TBD",
-        "tla": null,
-        "crest": null
+        "id": 762,
+        "name": "Argentina",
+        "tla": "ARG",
+        "crest": "https://crests.football-data.org/762.png"
       },
       "score": {
         "home": null,
