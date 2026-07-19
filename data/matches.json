@@ -3093,7 +3093,7 @@
     {
       "id": 537390,
       "utcDate": "2026-07-19T19:00:00Z",
-      "status": "LIVE",
+      "status": "PAUSED",
       "stage": "FINAL",
       "group": null,
       "groupName": null,
